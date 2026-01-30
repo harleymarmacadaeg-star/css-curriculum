@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Operations | CSS NC II</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; }
+        .hero-pattern {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+    </style>
+</head>
+<body class="min-h-screen hero-pattern flex flex-col items-center">
+
+    <nav class="w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../index.html" class="flex items-center gap-2 text-slate-400 hover:text-white transition group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span class="font-bold uppercase text-xs tracking-widest">Back to Main Dashboard</span>
+            </a>
+            <div class="text-right">
+                <p class="text-xs font-black text-green-500 uppercase tracking-tighter">Common Competency 02</p>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl w-full px-6 py-16 text-center">
+        <div class="w-20 h-20 bg-green-600/20 rounded-3xl flex items-center justify-center text-4xl mb-6 mx-auto border border-green-500/30">
+            🖥️
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight uppercase">
+            Performing <span class="text-green-500">Computer Operations</span>
+        </h1>
+        <p class="text-slate-400 text-lg font-medium">
+            Master Learning Outcome 2: Plan and prepare for tasks, use appropriate hardware/software, and maintain a safe workspace.
+        </p>
+    </header>
+
+    <main class="max-w-5xl w-full px-6 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <a href="01-task-identification.html" class="group">
+            <div class="bg-slate-800/50 rounded-3xl p-8 border-2 border-slate-700 h-full transition-all duration-300 hover-card flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-3xl">📋</div>
+                    <span class="bg-green-500/10 text-green-500 text-[10px] font-black px-3 py-1 rounded-full border border-green-500/20 uppercase">Learning Outcome 2.1</span>
+                </div>
+                <h2 class="text-2xl font-black text-white mb-3 group-hover:text-green-400 transition-colors">Task Identification & Planning</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Learn how to identify user requirements, prepare appropriate hardware components, and plan your technical workflow efficiently.
+                </p>
+                <div class="mt-auto flex items-center gap-2 text-green-500 font-bold text-sm">
+                    START LESSON 
+                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="02-OHS-guidelines-procedures.html" class="group">
+            <div class="bg-slate-800/50 rounded-3xl p-8 border-2 border-slate-700 h-full transition-all duration-300 hover-card flex flex-col">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-3xl">⚠️</div>
+                    <span class="bg-green-500/10 text-green-500 text-[10px] font-black px-3 py-1 rounded-full border border-green-500/20 uppercase">Learning Outcome 2.2</span>
+                </div>
+                <h2 class="text-2xl font-black text-white mb-3 group-hover:text-green-400 transition-colors">OHS Guidelines & Procedures</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Critical safety standards for computer users. Focus on ergonomics, electrical safety, and workplace hazard management.
+                </p>
+                <div class="mt-auto flex items-center gap-2 text-green-500 font-bold text-sm">
+                    START LESSON 
+                    <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </div>
+        </a>
+
+    </main>
+
+    <footer class="w-full py-10 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-xs font-bold tracking-widest uppercase">
+            © 2026 HJM-Built-It | Developed by Harleymar J. Macadaeg
+        </p>
+    </footer>
+
+</body>
+</html>
