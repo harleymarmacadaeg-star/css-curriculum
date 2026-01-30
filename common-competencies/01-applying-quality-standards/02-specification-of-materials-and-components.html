@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Specification of Materials and Components</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slide { display: none; }
+        .slide.active { display: flex; }
+        html { scroll-behavior: smooth; }
+        body { overflow-y: auto; } 
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-50 font-sans min-h-screen">
+
+    <header class="fixed top-0 w-full bg-slate-800 p-5 border-b border-blue-500/50 flex justify-between items-center z-50">
+        <div class="text-lg font-black tracking-tighter text-blue-400 uppercase">CSS NC II | Quality Standards</div>
+        <div class="text-sm font-bold text-slate-300">Sir Harleymar (HJM-Build-It) - Grade 10</div>
+    </header>
+
+    <main id="presentation" class="w-full flex flex-col items-center px-10 pt-28 pb-32">
+        
+        <section class="slide active flex-col items-center justify-center text-center w-full min-h-[75vh]">
+            <h1 class="text-7xl font-black text-white mb-6 leading-tight">Specification of Materials <br>& Components</h1>
+            <p class="text-3xl font-bold text-blue-300 mb-12">Applying Quality Standards (LO 1.2)</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="bg-blue-600 px-8 py-4 rounded-2xl shadow-lg border-2 border-blue-400 uppercase font-black">Identify</div>
+                <div class="bg-slate-700 px-8 py-4 rounded-2xl shadow-lg border-2 border-slate-500 uppercase font-black">Describe</div>
+                <div class="bg-slate-700 px-8 py-4 rounded-2xl shadow-lg border-2 border-slate-500 uppercase font-black">Check</div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-6xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-yellow-400 mb-10 border-b-4 border-yellow-500 pb-4">Lesson Objectives</h2>
+            <div class="bg-slate-800 p-10 rounded-3xl shadow-2xl border-l-8 border-yellow-500">
+                <p class="text-3xl text-slate-300 mb-8">At the end of this lesson, learners should be able to:</p>
+                <ul class="space-y-8">
+                    <li class="flex items-center text-3xl font-bold text-white">
+                        <span class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-6 text-xl">1</span>
+                        Identify different materials used in computer systems servicing.
+                    </li>
+                    <li class="flex items-center text-3xl font-bold text-white">
+                        <span class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-6 text-xl">2</span>
+                        Describe the basic specifications and uses of wires, cables, and electrical tape.
+                    </li>
+                    <li class="flex items-center text-3xl font-bold text-white">
+                        <span class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mr-6 text-xl">3</span>
+                        Check received materials against workplace standards and specifications.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <h2 class="text-6xl font-black text-blue-400 underline decoration-8 underline-offset-8">A. Wires</h2>
+                    <p class="text-3xl font-bold leading-snug">Single conductors for internal power and signal connections.</p>
+                    <div class="bg-slate-800 p-8 rounded-3xl border-l-[12px] border-blue-500 shadow-2xl">
+                        <ul class="space-y-4 text-2xl font-extrabold text-slate-100">
+                            <li>• Material: <span class="text-yellow-300">Copper / Aluminum</span></li>
+                            <li>• Insulation: <span class="text-yellow-300">Rubber / Plastic</span></li>
+                            <li>• Rating: <span class="text-blue-300 font-mono italic underline">AWG (Gauge)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow-2xl">
+                    <img src="images/wire-gauge-chart.png" alt="Wire Gauge Chart" class="rounded-2xl w-full h-auto">
+                    <p class="text-slate-900 text-center text-lg font-black mt-4 uppercase">Figure 1: AWG Specifications</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-green-400 mb-10">B. Network (LAN) Cables</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-slate-800 rounded-3xl border-4 border-slate-700 overflow-hidden shadow-2xl">
+                    <table class="w-full text-left">
+                        <tr class="bg-green-600 text-3xl font-black">
+                            <th class="p-6">CAT</th>
+                            <th class="p-6">SPEED / USE</th>
+                        </tr>
+                        <tr class="border-b border-slate-700 text-3xl font-bold">
+                            <td class="p-6">Cat5e</td>
+                            <td class="p-6 text-green-300">1 Gbps (Standard)</td>
+                        </tr>
+                        <tr class="border-b border-slate-700 text-3xl font-bold">
+                            <td class="p-6">Cat6</td>
+                            <td class="p-6 text-green-300">10 Gbps (Modern)</td>
+                        </tr>
+                        <tr class="text-3xl font-bold bg-slate-700/40">
+                            <td class="p-6">Cat8</td>
+                            <td class="p-6 text-yellow-300">40 Gbps (Server)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow-2xl">
+                    <img src="images/lan-cat-comparison.png" alt="LAN Cat" class="w-full h-auto rounded-xl">
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-purple-400 mb-8">C. Display / Video Cables</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center justify-center min-h-[450px]">
+                    <img id="display-img" src="images/display-cable-pins.png" alt="Display Overview" class="w-full h-auto max-h-[400px] object-contain transition-all duration-300">
+                    <p id="image-caption" class="text-slate-900 text-center text-xl font-black mt-4 uppercase">Main Comparison View</p>
+                </div>
+
+                <div class="space-y-4">
+                    <button onclick="updateDisplay('vga', 'VGA (Analog)', '15-pin blue connector. Legacy standard.', 'images/vga-cable.png')" class="w-full text-left bg-slate-800 p-5 rounded-2xl border-l-8 border-blue-500 hover:bg-slate-700 transition shadow-lg group">
+                        <p class="text-2xl font-black group-hover:text-blue-400 uppercase">VGA</p>
+                        <p id="vga-def" class="text-slate-400 font-bold hidden mt-2 italic text-lg">Analog signal, 15-pin. Common in older projectors.</p>
+                    </button>
+                    <button onclick="updateDisplay('dvi', 'DVI (Digital/Analog)', 'White connector. Better than VGA. No audio.', 'images/dvi-cable.png')" class="w-full text-left bg-slate-800 p-5 rounded-2xl border-l-8 border-cyan-500 hover:bg-slate-700 transition shadow-lg group">
+                        <p class="text-2xl font-black group-hover:text-cyan-400 uppercase">DVI</p>
+                        <p id="dvi-def" class="text-slate-400 font-bold hidden mt-2 italic text-lg">Digital/Analog bridge. High video quality, no audio.</p>
+                    </button>
+                    <button onclick="updateDisplay('hdmi', 'HDMI (Digital)', 'Standard for TVs and Monitors. Video + Audio.', 'images/hdmi-cable.png')" class="w-full text-left bg-slate-800 p-5 rounded-2xl border-l-8 border-red-500 hover:bg-slate-700 transition shadow-lg group">
+                        <p class="text-2xl font-black group-hover:text-red-400 uppercase">HDMI</p>
+                        <p id="hdmi-def" class="text-slate-400 font-bold hidden mt-2 italic text-lg">Digital Video + Audio. Supports 4K resolution.</p>
+                    </button>
+                    <button onclick="updateDisplay('dp', 'DisplayPort (Pro)', 'High refresh rate standard. PC Gaming focus.', 'images/dp-cable.png')" class="w-full text-left bg-slate-800 p-5 rounded-2xl border-l-8 border-purple-500 hover:bg-slate-700 transition shadow-lg group">
+                        <p class="text-2xl font-black group-hover:text-purple-400 uppercase">DisplayPort</p>
+                        <p id="dp-def" class="text-slate-400 font-bold hidden mt-2 italic text-lg">20-pin connector. Professional standard for PCs.</p>
+                    </button>
+                    <button onclick="updateDisplay('usbc', 'USB-C (Universal)', 'Modern All-in-one connector.', 'images/usb-c-cable.png')" class="w-full text-left bg-slate-800 p-5 rounded-2xl border-l-8 border-green-500 hover:bg-slate-700 transition shadow-lg group">
+                        <p class="text-2xl font-black group-hover:text-green-400 uppercase">USB-C</p>
+                        <p id="usbc-def" class="text-slate-400 font-bold hidden mt-2 italic text-lg">Video, Audio, Power, and Data in one cable.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <h2 class="text-6xl font-black text-yellow-400 underline decoration-8 underline-offset-8">D. Electrical Tape</h2>
+                    <p class="text-3xl font-bold leading-snug">Insulating material to protect exposed wires and prevent shorts.</p>
+                    <div class="bg-slate-800 p-8 rounded-3xl border-l-[12px] border-yellow-500 shadow-2xl">
+                        <ul class="space-y-4 text-2xl font-extrabold text-slate-100">
+                            <li>• Standard: <span class="text-yellow-300 uppercase underline">UL Listed / Flame Retardant</span></li>
+                            <li>• Use: <span class="text-yellow-300">Insulate wire joints & splices</span></li>
+                            <li>• Quality: <span class="text-yellow-300 font-mono">High adhesive, no cracks</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow-2xl">
+                    <img src="images/electrical-tape.png" alt="Electrical Tape" class="rounded-2xl w-full h-auto">
+                    <p class="text-slate-900 text-center text-lg font-black mt-4 uppercase">Figure 2: Insulation Standards</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-purple-400 mb-6 underline decoration-8 decoration-purple-600 underline-offset-8 uppercase">E. Electronic Components (1/2)</h2>
+            <p class="text-3xl text-slate-300 mb-10 font-bold italic">“Found on the Motherboard and Power Supply Unit.”</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 hover:border-purple-500 transition shadow-2xl group flex flex-col h-full">
+                    <div class="bg-white rounded-2xl h-64 mb-6 overflow-hidden flex items-center justify-center p-4">
+                        <img src="images/resistor.png" alt="Resistor" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Resistor</h3>
+                    <p class="text-xl text-slate-400 font-bold leading-snug">Limits or regulates the flow of electrical current in a circuit.</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 hover:border-purple-500 transition shadow-2xl group flex flex-col h-full">
+                    <div class="bg-white rounded-2xl h-64 mb-6 overflow-hidden flex items-center justify-center p-4">
+                        <img src="images/capacitor.png" alt="Capacitor" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Capacitor</h3>
+                    <p class="text-xl text-slate-400 font-bold leading-snug">Stores and releases electrical energy; filters voltage spikes.</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 hover:border-purple-500 transition shadow-2xl group flex flex-col h-full">
+                    <div class="bg-white rounded-2xl h-64 mb-6 overflow-hidden flex items-center justify-center p-4">
+                        <img src="images/ic-chip.png" alt="Integrated Circuit" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">IC Chip</h3>
+                    <p class="text-xl text-slate-400 font-bold leading-snug">A complex set of microscopic circuits on a small silicon chip.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-purple-400 mb-6 underline decoration-8 decoration-purple-600 underline-offset-8 uppercase">E. Electronic Components (2/2)</h2>
+            <p class="text-3xl text-slate-300 mb-10 font-bold italic">“Found on the Motherboard and Power Supply Unit.”</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-5xl mx-auto">
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 hover:border-purple-500 transition shadow-2xl group flex flex-col h-full">
+                    <div class="bg-white rounded-2xl h-72 mb-6 overflow-hidden flex items-center justify-center p-4">
+                        <img src="images/diode.png" alt="Diode" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Diode</h3>
+                    <p class="text-xl text-slate-400 font-bold leading-snug">Allows current to flow in <span class="text-purple-400">only one direction</span> (one-way valve).</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 hover:border-purple-500 transition shadow-2xl group flex flex-col h-full">
+                    <div class="bg-white rounded-2xl h-72 mb-6 overflow-hidden flex items-center justify-center p-4">
+                        <img src="images/transistor.png" alt="Transistor" class="w-full h-full object-contain group-hover:scale-110 transition duration-500">
+                    </div>
+                    <h3 class="text-4xl font-black text-white mb-4">Transistor</h3>
+                    <p class="text-xl text-slate-400 font-bold leading-snug">Acts as an <span class="text-purple-400">amplifier or switch</span>. The building block of CPUs.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-red-500 mb-10 text-center uppercase">LO 1.2: Quality Checklist</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-10 rounded-3xl border-t-8 border-red-500 shadow-2xl">
+                    <h3 class="text-4xl font-black mb-4">1. VISUAL</h3>
+                    <p class="text-xl font-bold text-slate-400">Search for bent pins, burnt marks, or insulation nicks.</p>
+                </div>
+                <div class="bg-slate-800 p-10 rounded-3xl border-t-8 border-red-500 shadow-2xl">
+                    <h3 class="text-4xl font-black mb-4">2. SPEC</h3>
+                    <p class="text-xl font-bold text-slate-400">Verify labels: Cat6, AWG, or UL Rating must match J.O.</p>
+                </div>
+                <div class="bg-slate-800 p-10 rounded-3xl border-t-8 border-red-500 shadow-2xl">
+                    <h3 class="text-4xl font-black mb-4">3. TEST</h3>
+                    <p class="text-xl font-bold text-slate-400">Perform continuity tests or use a LAN Tester before install.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-6xl font-black text-blue-400 mb-8 uppercase text-center border-b-4 border-slate-700 pb-4">Multiple Choice Quiz</h2>
+            <p class="text-center text-xl text-slate-400 mb-8">Write the letter of the correct answer on your paper.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left mb-8">
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">1. Which cable supports both Digital Video + Audio?</p>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300 text-base">
+                        <p>A. VGA</p> <p>B. HDMI</p> <p>C. DVI</p> <p>D. Coaxial</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">2. What does AWG stand for?</p>
+                    <div class="text-slate-300 text-base">
+                        <p>A. American Wire Gauge</p> <p>B. Auto Wire Grade</p> <p>C. Aluminum Wire Guide</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">3. What is the standard color for a VGA connector?</p>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300 text-base">
+                        <p>A. White</p> <p>B. Red</p> <p>C. Blue</p> <p>D. Black</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">4. Which LAN cable is standard for 1 Gbps?</p>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300 text-base">
+                        <p>A. Cat3</p> <p>B. Cat5e</p> <p>C. Cat8</p> <p>D. Coaxial</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">5. High-quality electrical tape must be:</p>
+                    <div class="text-slate-300 text-base">
+                        <p>A. Transparent</p> <p>B. Wet</p> <p>C. Flame Retardant</p> <p>D. Double-sided</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl">
+                    <p class="text-lg font-bold text-white mb-1">6. Which interface is best for high-refresh PC Gaming?</p>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300 text-base">
+                        <p>A. VGA</p> <p>B. DisplayPort</p> <p>C. DVI</p> <p>D. Composite</p>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 p-4 rounded-xl md:col-span-2">
+                    <p class="text-lg font-bold text-white mb-1">7. Which of these is a visual defect?</p>
+                    <div class="grid grid-cols-2 gap-2 text-slate-300 text-base">
+                        <p>A. Correct Label</p> <p>B. Bent Pins</p> <p>C. Sealed Box</p> <p>D. UL Sticker</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center">
+                <button onclick="toggleAnswer('mc-answers')" class="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-black px-8 py-3 rounded-full text-xl transition shadow-lg">
+                    REVEAL ANSWERS
+                </button>
+                <div id="mc-answers" class="hidden mt-6 bg-green-600 p-6 rounded-2xl border-4 border-green-400 text-white font-bold text-2xl animate-bounce">
+                    1. B (HDMI) | 2. A (AWG) | 3. C (Blue) | 4. B (Cat5e) <br>
+                    5. C (Flame Retardant) | 6. B (DisplayPort) | 7. B (Bent Pins)
+                </div>
+            </div>
+        </section>
+
+        <section class="slide flex-col items-center justify-center w-full max-w-7xl min-h-[75vh] py-10">
+            <h2 class="text-5xl font-black text-white mb-8 uppercase border-b-4 border-blue-500 pb-2">Identify These Materials</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 w-full mb-8">
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/vga-cable-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">1</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/usb-c-cable-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">2</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/sat8-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">3</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/hdmi-cable-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">4</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/dvi-cable.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">5</p></div>
+    
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/dp-cable.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">6</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/cat6-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">7</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-slate-700 hover:border-blue-500 transition"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/cat5e-quiz.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-blue-400">8</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-purple-900 shadow-lg shadow-purple-900/20"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/resistor.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-purple-400">9</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-purple-900 shadow-lg shadow-purple-900/20"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/capacitor.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-purple-400">10</p></div>
+
+    <div class="md:col-start-2 bg-slate-800 p-4 rounded-xl text-center border border-purple-900 shadow-lg shadow-purple-900/20"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/ic-chip.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-purple-400">11</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-purple-900 shadow-lg shadow-purple-900/20"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/diode.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-purple-400">12</p></div>
+    <div class="bg-slate-800 p-4 rounded-xl text-center border border-purple-900 shadow-lg shadow-purple-900/20"><div class="bg-white rounded-lg h-32 overflow-hidden mb-2 flex items-center justify-center"><img src="images/transistor.png" class="h-full w-full object-contain"></div><p class="text-2xl font-black text-purple-400">13</p></div>
+</div>
+
+            <div class="w-full text-center pb-20">
+                <button onclick="toggleAnswer('img-answers')" class="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-black px-8 py-3 rounded-full text-xl transition shadow-lg">
+                    REVEAL ANSWERS
+                </button>
+                <div id="img-answers" class="hidden mt-6 bg-green-600 p-6 rounded-2xl border-4 border-green-400 text-white font-bold text-xl">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-2 text-left px-6">
+        <p>1. VGA Cable</p>
+        <p>2. USB-C Cable</p>
+        <p>3. Cat8 LAN Cable</p>
+        <p>4. HDMI Cable</p>
+        <p>5. DVI Cable</p>
+        <p>6. DisplayPort</p>
+        <p>7. Cat6 LAN Cable</p>
+        <p>8. Cat5e LAN Cable</p>
+        <p >9. Resistor</p>
+        <p >10. Capacitor</p>
+        <p >11. IC Chip</p>
+        <p >12. Diode</p>
+        <p >13. Transistor</p>
+    </div>
+</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="fixed bottom-0 w-full bg-slate-800 p-6 border-t-4 border-blue-600 flex justify-between px-20 z-50">
+        <button onclick="changeSlide(-1)" class="text-2xl font-black text-slate-400 hover:text-white uppercase tracking-widest">← Back</button>
+        <div id="slide-num" class="text-2xl font-black text-blue-400">1 / 9</div>
+        <button onclick="changeSlide(1)" class="bg-blue-600 hover:bg-blue-500 px-12 py-2 rounded-xl text-2xl font-black uppercase tracking-widest transition shadow-lg">Next →</button>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideNum = document.getElementById('slide-num');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            slideNum.innerText = `${currentSlide + 1} / ${slides.length}`;
+            window.scrollTo(0, 0);
+        }
+
+        function updateDisplay(id, title, definition, imgSrc) {
+            const img = document.getElementById('display-img');
+            const caption = document.getElementById('image-caption');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = imgSrc;
+                img.style.opacity = '1';
+                caption.innerText = title;
+            }, 200);
+
+            const defs = ['vga-def', 'dvi-def', 'hdmi-def', 'dp-def', 'usbc-def'];
+            defs.forEach(d => document.getElementById(d).classList.add('hidden'));
+            document.getElementById(id + '-def').classList.remove('hidden');
+        }
+
+        function toggleAnswer(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+            // Scroll to the answer if it appears
+            if (!el.classList.contains('hidden')) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight" || e.key === " ") changeSlide(1);
+            if (e.key === "ArrowLeft") changeSlide(-1);
+        });
+    </script>
+</body>
+</html>

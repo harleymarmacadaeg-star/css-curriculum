@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS NC II - Course Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
+                    colors: {
+                        qsu: '#1e3a8a', // Deep Blue
+                        accent: '#f59e0b', // Amber/Yellow
+                        darkbg: '#0f172a', // Slate 900
+                        cardbg: '#1e293b', // Slate 800
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; }
+        .hero-pattern {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen hero-pattern">
+
+    <nav class="bg-slate-900/90 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-qsu rounded-lg flex items-center justify-center font-black text-white text-xl shadow-lg shadow-blue-900/50">
+                    CSS
+                </div>
+                <div>
+                    <h1 class="font-bold text-white text-lg leading-none">Computer Systems Servicing NC II</h1>
+                    <p class="text-xs text-slate-400">K-12 Technical-Vocational Track</p>
+                </div>
+            </div>
+            <div class="text-right hidden md:block">
+                <p class="text-sm font-semibold text-white">Mr. Harleymar J. Macadaeg</p>
+                <p class="text-xs text-accent">ICT Teacher</p>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-6 py-12 md:py-20 text-center">
+        <span class="inline-block py-1 px-3 rounded-full bg-blue-900/50 border border-blue-700 text-blue-300 text-sm font-bold mb-4">
+            640 HOURS CURRICULUM
+        </span>
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+            Master the Art of <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-accent">Computer Systems</span>
+        </h1>
+        <p class="max-w-3xl mx-auto text-slate-400 text-lg md:text-xl leading-relaxed">
+            This course leads to a Computer Systems Servicing National Certificate Level II (NC II). 
+            From safety procedures and technical drawing to installing servers and configuring networks.
+        </p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 pb-20 space-y-16">
+
+        <section>
+            <div class="flex items-center justify-between gap-4 mb-8">
+                <div class="flex items-center gap-4 flex-1">
+                    <div class="h-px bg-slate-700 w-12"></div>
+                    <h2 class="text-2xl font-bold text-accent uppercase tracking-widest">Common Competencies</h2>
+                    <div class="h-px bg-slate-700 flex-1"></div>
+                </div>
+                <a href="common-competencies/index.html" class="text-xs font-bold text-slate-400 hover:text-white flex items-center gap-1 border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-800 transition">
+                    View Module Dashboard <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <a href="common-competencies/index.html" class="block group">
+                    <div class="bg-cardbg rounded-2xl p-6 border border-slate-700 transition-all duration-300 hover-card relative overflow-hidden h-full">
+                        <div class="absolute top-4 right-4 text-slate-600 group-hover:text-blue-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            ✅
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">1. Apply Quality Standards</h3>
+                        <p class="text-slate-400 text-sm">Assess own work and ensure it meets client requirements and industry standards.</p>
+                        <span class="inline-block mt-4 text-xs font-bold text-blue-400 uppercase group-hover:underline">View Unit</span>
+                    </div>
+                </a>
+
+                <a href="common-competencies/index.html" class="block group">
+                    <div class="bg-cardbg rounded-2xl p-6 border-2 border-green-500/50 transition-all duration-300 hover:border-green-400 hover:shadow-green-900/20 hover:-translate-y-2 relative overflow-hidden h-full">
+                        <div class="absolute top-0 right-0 bg-green-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg">
+                            ACTIVE
+                        </div>
+                        <div class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-2xl mb-4 text-green-400">
+                            🖥️
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">2. Computer Operations</h3>
+                        <p class="text-slate-300 text-sm">OHS Guidelines, keyboarding, and basic computer usage procedures.</p>
+                        <div class="mt-4 flex items-center gap-2 text-green-400 text-sm font-bold">
+                            <span>View Unit</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="bg-cardbg rounded-2xl p-6 border border-slate-700 opacity-75 grayscale hover:grayscale-0 transition-all duration-300 select-none">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        📐
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">3. Mensuration & Calculation</h3>
+                    <p class="text-slate-500 text-sm">Measuring components and performing calculation for memory/storage.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-slate-600 bg-slate-900 px-2 py-1 rounded">LOCKED</span>
+                </div>
+
+                <div class="bg-cardbg rounded-2xl p-6 border border-slate-700 opacity-75 grayscale hover:grayscale-0 transition-all duration-300 select-none">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        ✏️
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">4. Technical Drawing</h3>
+                    <p class="text-slate-500 text-sm">Interpret technical drawings, flowcharts, and schematic diagrams.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-slate-600 bg-slate-900 px-2 py-1 rounded">LOCKED</span>
+                </div>
+
+                <div class="bg-cardbg rounded-2xl p-6 border border-slate-700 opacity-75 grayscale hover:grayscale-0 transition-all duration-300 select-none">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        🛠️
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">5. Use Hand Tools</h3>
+                    <p class="text-slate-500 text-sm">Proper selection, usage, and safety of hand tools for repairs.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-slate-600 bg-slate-900 px-2 py-1 rounded">LOCKED</span>
+                </div>
+
+                <div class="bg-cardbg rounded-2xl p-6 border border-slate-700 opacity-75 grayscale hover:grayscale-0 transition-all duration-300 select-none">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        🔌
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-300 mb-2">6 & 7. Wiring & Testing</h3>
+                    <p class="text-slate-500 text-sm">Terminate wiring, connect circuits, and test electronic components.</p>
+                    <span class="inline-block mt-4 text-xs font-bold text-slate-600 bg-slate-900 px-2 py-1 rounded">LOCKED</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-px bg-slate-700 flex-1"></div>
+                <h2 class="text-2xl font-bold text-blue-400 uppercase tracking-widest">Core Competencies</h2>
+                <div class="h-px bg-slate-700 flex-1"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all duration-300 group">
+                    <h1 class="text-5xl font-black text-slate-800 mb-4 absolute right-4 top-4 select-none group-hover:text-slate-700 transition">01</h1>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-2">Install & Configure Systems</h3>
+                        <p class="text-xs text-slate-400 mb-4">Assembly, OS installation, and driver configuration.</p>
+                        <button class="w-full py-2 rounded bg-slate-700 text-slate-400 text-xs font-bold cursor-not-allowed">LOCKED</button>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all duration-300 group">
+                    <h1 class="text-5xl font-black text-slate-800 mb-4 absolute right-4 top-4 select-none group-hover:text-slate-700 transition">02</h1>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-2">Setup Networks</h3>
+                        <p class="text-xs text-slate-400 mb-4">Cabling, router configuration, and Wi-Fi setup.</p>
+                        <button class="w-full py-2 rounded bg-slate-700 text-slate-400 text-xs font-bold cursor-not-allowed">LOCKED</button>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all duration-300 group">
+                    <h1 class="text-5xl font-black text-slate-800 mb-4 absolute right-4 top-4 select-none group-hover:text-slate-700 transition">03</h1>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-2">Setup Servers</h3>
+                        <p class="text-xs text-slate-400 mb-4">DHCP, DNS, AD DS, and File Server configuration.</p>
+                        <button class="w-full py-2 rounded bg-slate-700 text-slate-400 text-xs font-bold cursor-not-allowed">LOCKED</button>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 hover:border-blue-500 transition-all duration-300 group">
+                    <h1 class="text-5xl font-black text-slate-800 mb-4 absolute right-4 top-4 select-none group-hover:text-slate-700 transition">04</h1>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white mb-2">Maintain & Repair</h3>
+                        <p class="text-xs text-slate-400 mb-4">Troubleshooting, maintenance planning, and repair.</p>
+                        <button class="w-full py-2 rounded bg-slate-700 text-slate-400 text-xs font-bold cursor-not-allowed">LOCKED</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+        <p>Copyright © HJM-BUILD-IT | CSS NC II Curriculum</p>
+        <p class="mt-2">Developed by Mr. Harleymar J. Macadaeg</p>
+    </footer>
+
+</body>
+</html>

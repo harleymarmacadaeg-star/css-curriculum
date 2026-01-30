@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS NC II - OHS Guidelines (Dark Mode + Local Images)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        qsu: '#60a5fa', 
+                        accent: '#facc15', 
+                        darkbg: '#0f172a', 
+                        cardbg: '#1e293b', 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass-card {
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-glow { text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .nav-btn { transition: all 0.2s; }
+        .nav-btn:active { transform: scale(0.95); }
+        
+        /* Consistent Image Height */
+        .image-card-height { min-height: 500px; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans overflow-x-hidden relative text-xl">
+
+    <nav class="fixed top-0 w-full bg-slate-900/95 backdrop-blur-md z-40 shadow-lg border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="font-black text-qsu text-xl md:text-2xl tracking-wide">CSS NC II</h1>
+                <p class="text-sm md:text-base text-slate-400 font-bold">L2: Performing Computer Operations (OHS)</p>
+            </div>
+            <div class="text-right hidden md:block">
+                <p class="font-bold text-base text-white">Mr. Harleymar J. Macadaeg</p>
+                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">ICT Teacher</p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="fixed bottom-8 right-8 z-50 flex gap-4">
+        <button id="prevBtn" onclick="navigate(-1)" class="nav-btn bg-slate-800 text-white hover:bg-slate-700 hover:text-accent shadow-xl border-2 border-slate-600 p-5 rounded-full disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous Slide">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="nextBtn" onclick="navigate(1)" class="nav-btn bg-accent text-black hover:bg-yellow-300 shadow-xl p-5 rounded-full disabled:opacity-30 disabled:cursor-not-allowed border-2 border-yellow-600" aria-label="Next Slide">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+    <main id="main-container">
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-4 pt-10 snap-start relative border-b border-slate-800">
+        <div class="max-w-5xl w-full text-center space-y-4 reveal">
+            <div class="inline-block px-6 py-2 bg-yellow-400 text-slate-900 rounded-full text-lg font-black mb-2 uppercase tracking-widest shadow-2xl border-4 border-yellow-500 transform hover:scale-105 transition-transform duration-300">
+                Topic: Operational Health and Safety (OHS) Guidelines
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black text-white tracking-tight leading-none text-glow">
+                SAFETY <span class="text-accent">FIRST</span>
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-400 leading-tight">
+                 in the Computer Laboratory
+            </h2>
+            <div class="mt-8 p-6 bg-slate-900 rounded-3xl shadow-2xl border-2 border-slate-700 transform hover:scale-105 transition-transform duration-300">
+                <h3 class="text-lg font-black text-accent uppercase tracking-widest mb-2">Motivation Question</h3>
+                <p class="text-2xl md:text-3xl font-bold text-white italic leading-tight">
+                    “What do you think will happen if we repair a computer <span class="text-red-400 underline decoration-4 underline-offset-4">without</span> following safety rules?”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+            <div class="space-y-8">
+                <h2 class="text-5xl font-black text-white leading-tight">
+                    Importance of <br>
+                    <span class="text-accent">OHS in CSS</span>
+                </h2>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-6 p-4 bg-slate-900 rounded-2xl border border-slate-700 shadow-lg hover:border-accent transition duration-300">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-3xl shadow-lg shadow-red-900/50">⛑️</div>
+                        <p class="text-2xl font-bold text-slate-200">Prevents accidents and injuries</p>
+                    </div>
+                    <div class="flex items-center gap-6 p-4 bg-slate-900 rounded-2xl border border-slate-700 shadow-lg hover:border-accent transition duration-300">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-3xl shadow-lg shadow-blue-900/50">🛡️</div>
+                        <p class="text-2xl font-bold text-slate-200">Protects computer components</p>
+                    </div>
+                    <div class="flex items-center gap-6 p-4 bg-slate-900 rounded-2xl border border-slate-700 shadow-lg hover:border-accent transition duration-300">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-900/50">✅</div>
+                        <p class="text-2xl font-bold text-slate-200">Ensures a safe working environment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative group h-full min-h-[500px]">
+                <div class="absolute -inset-2 bg-gradient-to-r from-accent to-qsu rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                <div class="relative w-full h-full bg-slate-800 rounded-2xl border-2 border-slate-600 overflow-hidden flex items-center justify-center shadow-2xl">
+                    <img src="images/technician_safe.png" 
+                         alt="Technician working safely" 
+                         class="w-full h-full object-contain opacity-100 group-hover:opacity-100 transition duration-500"
+                         onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/technician_safe.jpg</div>'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h2 class="text-4xl font-black text-qsu mb-8 border-b-4 border-accent inline-block pb-2">I. Objectives</h2>
+                <ul class="space-y-8 text-2xl font-bold text-slate-200">
+                    <li class="flex items-start"><span class="mr-4 text-accent text-3xl">✔</span>Explain the importance of OHS.</li>
+                    <li class="flex items-start"><span class="mr-4 text-accent text-3xl">✔</span>Identify common hazards in the lab.</li>
+                    <li class="flex items-start"><span class="mr-4 text-accent text-3xl">✔</span>Plan tasks ensuring OHS compliance.</li>
+                </ul>
+            </div>
+            <div class="space-y-8 reveal">
+                <div class="glass-card p-8 rounded-2xl border-l-8 border-qsu">
+                    <h3 class="font-black text-2xl text-accent mb-3 uppercase">Definition</h3>
+                    <p class="text-xl text-white font-semibold leading-relaxed"><span class="text-qsu">OHS:</span> Planned systems to prevent illness and injury where you work.</p>
+                </div>
+                <div class="bg-red-900/20 p-8 rounded-2xl border-2 border-red-800/50">
+                    <h3 class="font-black text-2xl text-red-400 mb-6 flex items-center gap-3"><span>⚠</span> Common Hazards</h3>
+                    <div class="grid grid-cols-2 gap-6 text-lg font-bold">
+                        <div class="flex items-center gap-3 text-red-200"><div class="w-10 h-10 bg-red-800 rounded-full flex items-center justify-center text-white">⚡</div><span>Exposed Wires</span></div>
+                        <div class="flex items-center gap-3 text-blue-200"><div class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center text-white">💧</div><span>Wet Hands</span></div>
+                        <div class="flex items-center gap-3 text-orange-200"><div class="w-10 h-10 bg-orange-800 rounded-full flex items-center justify-center text-white">🔌</div><span>Overloaded</span></div>
+                        <div class="flex items-center gap-3 text-gray-200"><div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white">🌫</div><span>Dust Buildup</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-blue-500 pb-4">
+                    <span class="text-7xl">🏢</span>
+                    <div>
+                        <h2 class="text-2xl text-blue-400 font-bold uppercase tracking-widest">Category I</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">General Lab Safety</h1>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-2xl border border-slate-700">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl md:text-3xl font-bold text-slate-300">
+                        <li class="flex items-start gap-4"><span class="text-blue-500">➤</span> Always follow rules and instructions.</li>
+                        <li class="flex items-start gap-4"><span class="text-blue-500">➤</span> Wear <span class="text-white">proper attire</span> (PPE).</li>
+                        <li class="flex items-start gap-4"><span class="text-blue-500">➤</span> Keep area clean, dry, and organized.</li>
+                        <li class="flex items-start gap-4"><span class="text-red-500">➤</span> <span class="text-red-400 underline">NO</span> eating or drinking inside.</li>
+                        <li class="flex items-start gap-4"><span class="text-blue-500">➤</span> Report accidents/hazards immediately.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-blue-900/50 relative group bg-slate-900">
+    <img src="images/general_lab.png" 
+         alt="Computer Laboratory Setup" 
+         class="w-full h-full object-contain opacity-100 transition duration-500"
+         onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/general_lab.png</div>'">
+</div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-yellow-500 pb-4">
+                    <span class="text-7xl">⚡</span>
+                    <div>
+                        <h2 class="text-2xl text-yellow-400 font-bold uppercase tracking-widest">Category II</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">Electrical Safety</h1>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-2xl border-2 border-yellow-600/30">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl md:text-3xl font-bold text-slate-300">
+                        <li class="flex items-start gap-4"><span class="text-yellow-500">⚡</span> <span class="text-white">Unplug</span> before servicing.</li>
+                        <li class="flex items-start gap-4"><span class="text-yellow-500">⚡</span> Never work with <span class="text-blue-400">wet hands</span>.</li>
+                        <li class="flex items-start gap-4"><span class="text-yellow-500">⚡</span> Check cords for cuts or burns.</li>
+                        <li class="flex items-start gap-4"><span class="text-yellow-500">⚡</span> Use <span class="text-white">insulated tools</span>.</li>
+                        <li class="flex items-start gap-4"><span class="text-yellow-500">⚡</span> Avoid overloading outlets.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-yellow-900/50 relative group bg-slate-900">
+    <img src="images/electrical.png"
+         alt="Electrical Cords and Safety"
+         class="w-full h-full object-contain opacity-100 transition duration-500"
+         onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/electrical.png</div>'">
+</div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-green-500 pb-4">
+                    <span class="text-7xl">🔋</span>
+                    <div>
+                        <h2 class="text-2xl text-green-400 font-bold uppercase tracking-widest">Category III</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">Static Electricity (ESD)</h1>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-2xl border border-slate-700">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl md:text-3xl font-bold text-slate-300">
+                        <li class="flex items-start gap-4"><span class="text-green-500">✔</span> Wear <span class="text-white">anti-static wrist strap</span>.</li>
+                        <li class="flex items-start gap-4"><span class="text-green-500">✔</span> Discharge static before touching.</li>
+                        <li class="flex items-start gap-4"><span class="text-green-500">✔</span> Handle components by <span class="text-white">edges</span>.</li>
+                        <li class="flex items-start gap-4"><span class="text-green-500">✔</span> Use anti-static mats/bags.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-green-900/50 relative group bg-slate-900">
+                <img src="images/esd_protection.jpg" 
+                alt="Electronic Components and ESD" 
+                class="w-full h-full object-contain opacity-100 transition duration-500"
+                onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/esd_protection.jpg</div>'">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-orange-500 pb-4">
+                    <span class="text-7xl">🛠️</span>
+                    <div>
+                        <h2 class="text-2xl text-orange-400 font-bold uppercase tracking-widest">Category IV</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">Tool & Equipment Safety</h1>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-2xl border border-slate-700">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl font-bold text-slate-300">
+                        <li class="flex items-start gap-3"><span class="text-orange-500">●</span> Use the <span class="text-white">correct tool</span>.</li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500">●</span> Inspect tools before use.</li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500">●</span> Don't use damaged tools.</li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500">●</span> Return to storage after use.</li>
+                        <li class="flex items-start gap-3 bg-red-900/30 p-4 rounded-xl border border-red-800"><span class="text-red-500">⚠</span> Do not leave tools inside system unit.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-orange-900/50 relative group">
+                <img src="images/tools.jpg" 
+                     alt="Computer Repair Tools" 
+                     class="w-full h-full object-contain opacity-100 group-hover:opacity-100 transition duration-500"
+                     onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/tools.jpg</div>'">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-pink-500 pb-4">
+                    <span class="text-7xl">🧘</span>
+                    <div>
+                        <h2 class="text-2xl text-pink-400 font-bold uppercase tracking-widest">Category V</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">Personal Safety & Ergonomics</h1>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-2xl border border-slate-700">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl md:text-3xl font-bold text-slate-300">
+                        <li class="flex items-start gap-4"><span class="text-pink-500">★</span> Maintain proper posture.</li>
+                        <li class="flex items-start gap-4"><span class="text-pink-500">★</span> Adjust chair & monitor for comfort.</li>
+                        <li class="flex items-start gap-4"><span class="text-pink-500">★</span> Take <span class="text-white">short breaks</span>.</li>
+                        <li class="flex items-start gap-4"><span class="text-pink-500">★</span> Use proper lifting techniques.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-pink-900/50 relative group">
+                <img src="images/ergonomics.jpg" 
+                     alt="Ergonomic Desk Setup" 
+                     class="w-full h-full object-contain opacity-100 group-hover:opacity-100 transition duration-500"
+                     onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/ergonomics.jpg</div>'">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="flex items-center gap-6 mb-8 border-b-4 border-red-600 pb-4">
+                    <span class="text-7xl">🔥</span>
+                    <div>
+                        <h2 class="text-2xl text-red-500 font-bold uppercase tracking-widest">Category VI</h2>
+                        <h1 class="text-5xl md:text-6xl font-black text-white">Fire Safety Guidelines</h1>
+                    </div>
+                </div>
+                <div class="bg-red-950/30 p-8 rounded-3xl shadow-2xl border-2 border-red-900">
+                    <ul class="grid grid-cols-1 gap-6 text-2xl md:text-3xl font-bold text-slate-200">
+                        <li class="flex items-start gap-4"><span class="text-red-500">⚠</span> Know location of exits & extinguishers.</li>
+                        <li class="flex items-start gap-4"><span class="text-red-500">⚠</span> Keep flammables away.</li>
+                        <li class="flex items-start gap-4"><span class="text-red-500">⚠</span> Report overheating immediately.</li>
+                        <li class="flex items-start gap-4 p-4 bg-red-600/20 rounded-xl border border-red-500"><span class="text-red-500">⛔</span> NEVER use water on electrical fires.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-full image-card-height rounded-3xl overflow-hidden shadow-2xl border-2 border-red-900/50 relative group">
+                <img src="images/fire_extinguisher.jpg" 
+                     alt="Fire Extinguisher" 
+                     class="w-full h-full object-contain opacity-100 group-hover:opacity-100 transition duration-500"
+                     onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono\'>Image not found: images/fire_extinguisher.jpg</div>'">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-7xl w-full reveal grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-6 border-b-4 border-teal-500 pb-2">
+                    <span class="text-5xl">🧹</span>
+                    <h1 class="text-3xl md:text-4xl font-black text-white">VII. Housekeeping</h1>
+                </div>
+                <div class="bg-slate-900 p-6 rounded-3xl border border-slate-700 flex-grow flex flex-col gap-6">
+                    <div class="h-48 rounded-xl overflow-hidden border border-teal-900">
+                         <img src="images/cables.png" alt="Cable Management" class="w-full h-full object-contain opacity-100" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono text-xs\'>Image not found: images/cables.jpg</div>'">
+                    </div>
+                    <ul class="space-y-4 text-xl md:text-2xl font-bold text-slate-300">
+                        <li>➤ Manage cables (Trip Hazard).</li>
+                        <li>➤ Ensure proper <span class="text-teal-400">ventilation</span>.</li>
+                        <li>➤ Remove dust regularly.</li>
+                        <li>➤ Keep pathways clear.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-6 border-b-4 border-purple-500 pb-2">
+                    <span class="text-5xl">🧪</span>
+                    <h1 class="text-3xl md:text-4xl font-black text-white">VIII. Chemical Safety</h1>
+                </div>
+                <div class="bg-slate-900 p-6 rounded-3xl border border-slate-700 flex-grow flex flex-col gap-6">
+                      <div class="h-48 rounded-xl overflow-hidden border border-purple-900">
+                        <img src="images/cleaning.jpg" alt="Cleaning Supplies" class="w-full h-full object-contain opacity-100" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-slate-500 font-mono text-xs\'>Image not found: images/cleaning.jpg</div>'">
+                    </div>
+                    <ul class="space-y-4 text-xl md:text-2xl font-bold text-slate-300">
+                        <li>➤ Use <span class="text-purple-400">approved</span> cleaners only.</li>
+                        <li>➤ Do not spray directly on parts.</li>
+                        <li>➤ Use compressed air properly.</li>
+                        <li>➤ Avoid inhaling fumes/dust.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-5xl w-full reveal space-y-12">
+            <div>
+                <div class="flex items-center gap-4 mb-6 pb-2">
+                    <span class="text-5xl">💾</span>
+                    <h1 class="text-4xl font-black text-white">IX. Data & Equipment Protection</h1>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-600">
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-2xl font-bold text-slate-300">
+                        <li class="flex items-center gap-3"><span class="text-accent">✔</span> Backup data first.</li>
+                        <li class="flex items-center gap-3"><span class="text-accent">✔</span> Label components.</li>
+                        <li class="flex items-center gap-3"><span class="text-accent">✔</span> Secure after service.</li>
+                        <li class="flex items-center gap-3"><span class="text-accent">✔</span> Avoid rough handling.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full bg-accent p-8 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300 border-4 border-yellow-600">
+                <h3 class="text-xl font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span>🔑</span> Student Takeaway
+                </h3>
+                <p class="text-2xl md:text-3xl font-black text-slate-900 leading-snug">
+                    "OHS guidelines protect <span class="underline decoration-black decoration-4">people</span>, <span class="underline decoration-black decoration-4">equipment</span>, and <span class="underline decoration-black decoration-4">data</span> by preventing accidents and damage."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-900 snap-start border-b border-slate-800">
+        <div class="max-w-5xl w-full reveal text-center">
+            <h2 class="text-5xl font-black mb-4 text-accent uppercase tracking-wide">Safe or Unsafe?</h2>
+            <p class="text-xl text-slate-400 font-bold mb-12">Click the buttons to reveal the answer.</p>
+            <div class="grid gap-6">
+                <div class="bg-slate-800 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center border border-slate-700 shadow-lg">
+                    <span class="text-2xl font-bold text-white mb-4 md:mb-0">1. Repairing a PC while plugged in</span>
+                    <div class="flex gap-3">
+                        <button onclick="checkSafety(this, 'unsafe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Safe?</button>
+                        <button onclick="checkSafety(this, 'unsafe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Unsafe?</button>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center border border-slate-700 shadow-lg">
+                    <span class="text-2xl font-bold text-white mb-4 md:mb-0">2. Wearing an anti-static wrist strap</span>
+                    <div class="flex gap-3">
+                        <button onclick="checkSafety(this, 'safe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Safe?</button>
+                        <button onclick="checkSafety(this, 'safe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Unsafe?</button>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center border border-slate-700 shadow-lg">
+                    <span class="text-2xl font-bold text-white mb-4 md:mb-0">3. Using wet hands in the lab</span>
+                    <div class="flex gap-3">
+                        <button onclick="checkSafety(this, 'unsafe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Safe?</button>
+                        <button onclick="checkSafety(this, 'unsafe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Unsafe?</button>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center border border-slate-700 shadow-lg">
+                    <span class="text-2xl font-bold text-white mb-4 md:mb-0">4. Organizing cables properly</span>
+                    <div class="flex gap-3">
+                        <button onclick="checkSafety(this, 'safe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Safe?</button>
+                        <button onclick="checkSafety(this, 'safe')" class="px-8 py-3 rounded-full border-2 border-slate-500 font-bold hover:bg-slate-700 transition text-lg">Unsafe?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-6xl w-full reveal">
+            <h2 class="text-4xl font-black text-center text-white mb-8"><span class="text-qsu">Application:</span> Task Planning</h2>
+            <div class="bg-slate-800 p-8 rounded-3xl shadow-2xl border border-slate-600">
+                <div class="flex items-center gap-6 mb-8 pb-6 border-b border-slate-600">
+                    <div class="bg-blue-900 p-4 rounded-xl border border-blue-500">
+                        <svg class="w-10 h-10 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-white">Scenario: Cleaning a System Unit</h3>
+                        <p class="text-slate-300 text-lg">Fill in the plan below before starting.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-xl font-bold text-accent mb-3">1. Tools Needed</label>
+                        <textarea class="w-full p-4 bg-slate-900 text-white text-xl rounded-xl border-2 border-slate-600 focus:border-accent focus:ring-0 outline-none h-40 placeholder-slate-500" placeholder="Ex: Compressed air, brush..."></textarea>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <label class="block text-xl font-bold text-accent mb-3">2. Safety Precautions</label>
+                            <input type="text" class="w-full p-4 bg-slate-900 text-white text-xl rounded-xl border-2 border-slate-600 focus:border-accent focus:ring-0 outline-none placeholder-slate-500" placeholder="Ex: Wear mask...">
+                        </div>
+                        <div>
+                            <label class="block text-xl font-bold text-accent mb-3">3. OHS Guidelines Applicable</label>
+                            <input type="text" class="w-full p-4 bg-slate-900 text-white text-xl rounded-xl border-2 border-slate-600 focus:border-accent focus:ring-0 outline-none placeholder-slate-500" placeholder="Ex: Proper ventilation...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start border-b border-slate-800">
+        <div class="max-w-5xl w-full reveal grid gap-16">
+            <div class="text-center">
+                <h2 class="text-3xl font-black text-qsu mb-6 uppercase">Key Takeaway</h2>
+                <blockquote class="text-4xl md:text-5xl font-bold italic text-white leading-tight">
+                    "Proper planning and following OHS guidelines ensure <span class="text-accent">safe</span> and <span class="text-accent">effective</span> computer operations."
+                </blockquote>
+            </div>
+
+            <div class="bg-slate-800 p-10 rounded-3xl shadow-2xl border border-slate-600" id="quiz-container">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-3xl font-black flex items-center gap-4 text-white">
+                        <span class="bg-accent text-slate-900 px-4 py-1 rounded-lg text-xl">QUIZ</span>
+                        <span id="question-number">Question 1/10</span>
+                    </h3>
+                    <div class="text-xl font-bold text-accent" id="score-display">Score: 0</div>
+                </div>
+                
+                <h4 id="question-text" class="text-2xl font-bold text-white mb-6 min-h-[80px]">Loading question...</h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="quiz-options">
+                    </div>
+                
+                <div id="quiz-feedback" class="mt-6 text-2xl font-black text-center hidden min-h-[40px]"></div>
+                
+                <div class="mt-6 flex justify-end gap-4 hidden" id="quiz-controls">
+                    <button onclick="nextQuestion()" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition">Next Question ➡</button>
+                </div>
+                
+                 <div id="quiz-results" class="hidden text-center">
+                    <h2 class="text-4xl font-black text-white mb-4">Quiz Completed!</h2>
+                    <p class="text-2xl text-slate-300 mb-8" id="final-score">Your Score: 0/10</p>
+                    <button onclick="restartQuiz()" class="px-8 py-3 bg-accent text-slate-900 font-bold rounded-full hover:scale-105 transition">Restart Quiz ↺</button>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="slide min-h-screen flex flex-col justify-center items-center p-8 bg-slate-950 snap-start">
+        <div class="max-w-4xl w-full text-center reveal">
+            <div class="w-24 h-24 bg-qsu text-white rounded-full flex items-center justify-center text-5xl font-black mx-auto mb-8 shadow-lg shadow-blue-900/50">?</div>
+            <h2 class="text-6xl font-black text-white mb-10 tracking-tight">ASSIGNMENT</h2>
+            <div class="bg-slate-800 p-10 rounded-3xl shadow-2xl border-t-8 border-qsu">
+                <p class="text-3xl text-white font-bold leading-relaxed">
+                    List five (5) OHS rules that should be followed in the computer laboratory and explain why each rule is important.
+                </p>
+                <p class="mt-8 text-lg text-slate-400 font-semibold uppercase tracking-widest">Reference: TESDA Training Regulations – CSS NC II</p>
+            </div>
+            <footer class="mt-16 text-slate-500 text-lg font-bold">
+                Prepared by: Mr. Harleymar J. Macadaeg | Quirino State University
+            </footer>
+        </div>
+    </section>
+
+    </main>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlideIndex = 0;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateButtons() {
+            if(currentSlideIndex === 0) {
+                prevBtn.disabled = true;
+                prevBtn.classList.add('opacity-30', 'cursor-not-allowed');
+            } else {
+                prevBtn.disabled = false;
+                prevBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+            }
+            if(currentSlideIndex === slides.length - 1) {
+                nextBtn.disabled = true;
+                nextBtn.classList.add('opacity-30', 'cursor-not-allowed');
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+            }
+        }
+
+        function navigate(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= slides.length) currentSlideIndex = slides.length - 1;
+            slides[currentSlideIndex].scrollIntoView({ behavior: 'smooth' });
+            updateButtons();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            // 1. CHECK: Is the user currently inside an Input or Textarea?
+            const isTyping = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+            // 2. IF TYPING: Stop here. Do not navigate. Let the user type spaces.
+            if (isTyping) return;
+
+            // 3. NAVIGATION LOGIC (Only runs if NOT typing)
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                navigate(1);
+            }
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                navigate(-1);
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    currentSlideIndex = Array.from(slides).indexOf(entry.target);
+                    updateButtons();
+                    const reveals = entry.target.querySelectorAll(".reveal");
+                    reveals.forEach(r => r.classList.add("active"));
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+        updateButtons();
+
+        // Safety Check Interaction
+        function checkSafety(btn, type) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.className = 'px-8 py-3 rounded-full border-2 border-slate-600 opacity-30 cursor-not-allowed text-white';
+                b.disabled = true;
+            });
+            if (type === 'safe') {
+                if(btn.innerText.includes('Safe')) {
+                    btn.className = 'px-8 py-3 rounded-full bg-green-600 text-white border-none font-black shadow-lg transform scale-105';
+                    btn.innerText = "✔ CORRECT";
+                } else {
+                     btn.className = 'px-8 py-3 rounded-full bg-red-600 text-white border-none font-black';
+                     btn.innerText = "✖ WRONG";
+                }
+            } else {
+                if(btn.innerText.includes('Unsafe')) {
+                    btn.className = 'px-8 py-3 rounded-full bg-green-600 text-white border-none font-black shadow-lg transform scale-105';
+                    btn.innerText = "✔ CORRECT";
+                } else {
+                    btn.className = 'px-8 py-3 rounded-full bg-red-600 text-white border-none font-black';
+                    btn.innerText = "✖ WRONG";
+                }
+            }
+            btn.style.opacity = '1';
+        }
+
+        // --- 10 ITEM QUIZ LOGIC ---
+        const questions = [
+            { 
+                q: "1. Which is a safe practice before opening a computer case?", 
+                options: ["Working with wet hands", "Unplugging the power cord", "Touching components directly", "Overloading sockets"], 
+                correct: 1 
+            },
+            { 
+                q: "2. What is the main purpose of an Anti-Static Wrist Strap?", 
+                options: ["To prevent electric shock", "To measure voltage", "To equalize static charge (Prevent ESD)", "To tie cables together"], 
+                correct: 2 
+            },
+            { 
+                q: "3. Which fire extinguisher is safe for electrical fires?", 
+                options: ["Class A (Water)", "Class C (CO2/Dry Chemical)", "Class K (Wet Chemical)", "Sand"], 
+                correct: 1 
+            },
+            { 
+                q: "4. What is the proper technique for lifting heavy equipment?", 
+                options: ["Lift with your back", "Lift with your legs, back straight", "Twist while lifting", "Bend over at the waist"], 
+                correct: 1 
+            },
+            { 
+                q: "5. Why is cable management important?", 
+                options: ["It looks nice", "To increase internet speed", "To prevent tripping & improve airflow", "To make cables longer"], 
+                correct: 2 
+            },
+            { 
+                q: "6. How should you clean dust from inside a computer?", 
+                options: ["Wipe with a wet cloth", "Use a vacuum cleaner", "Blow with your mouth", "Use compressed air (upright)"], 
+                correct: 3 
+            },
+            { 
+                q: "7. Which of these is an ergonomic hazard?", 
+                options: ["Poor posture & bad chair height", "A frayed wire", "Toxic chemicals", "A heavy falling object"], 
+                correct: 0 
+            },
+            { 
+                q: "8. What should you do with a damaged tool?", 
+                options: ["Use it carefully", "Hide it in a drawer", "Tag it 'Defective' and report it", "Fix it with tape"], 
+                correct: 2 
+            },
+            { 
+                q: "9. Before using a chemical cleaner, what should you check?", 
+                options: ["The price", "The smell", "The expiration date", "The MSDS / Label instructions"], 
+                correct: 3 
+            },
+            { 
+                q: "10. Why is eating near computers dangerous?", 
+                options: ["It's unprofessional", "Crumbs attract pests & spills cause shorts", "Computers overheat", "Food gets cold"], 
+                correct: 1 
+            }
+        ];
+
+        let quizIndex = 0;
+        let score = 0;
+
+        function initQuiz() {
+            quizIndex = 0;
+            score = 0;
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('question-text').classList.remove('hidden');
+            document.getElementById('quiz-options').classList.remove('hidden');
+            document.getElementById('score-display').innerText = `Score: 0`;
+            document.getElementById('question-number').innerText = `Question 1/10`;
+            
+            // Show quiz elements if hidden
+            document.querySelector('#quiz-container h3').classList.remove('hidden');
+            document.querySelector('#quiz-container .flex.justify-between').classList.remove('hidden');
+
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[quizIndex];
+            document.getElementById('question-number').innerText = `Question ${quizIndex + 1}/${questions.length}`;
+            document.getElementById('question-text').innerText = q.q;
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-controls').classList.add('hidden');
+            
+            const optionsDiv = document.getElementById('quiz-options');
+            optionsDiv.innerHTML = ''; // Clear previous options
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-6 bg-slate-700 text-xl font-bold text-white rounded-xl hover:bg-slate-600 border-2 border-transparent hover:border-slate-400 transition text-left";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(btn, idx);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(btn, idx) {
+            const correctIdx = questions[quizIndex].correct;
+            const feedback = document.getElementById('quiz-feedback');
+            const btns = document.getElementById('quiz-options').children;
+
+            // Disable all buttons
+            for(let b of btns) {
+                b.disabled = true;
+                b.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+            btn.classList.remove('opacity-50');
+
+            if (idx === correctIdx) {
+                score++;
+                btn.classList.remove('bg-slate-700');
+                btn.classList.add('bg-green-600', 'border-green-400');
+                feedback.innerHTML = "✔ CORRECT!";
+                feedback.className = "mt-6 text-2xl font-black text-center text-green-400 block animate-bounce";
+            } else {
+                btn.classList.remove('bg-slate-700');
+                btn.classList.add('bg-red-600', 'border-red-400');
+                
+                // Highlight correct answer
+                btns[correctIdx].classList.remove('bg-slate-700', 'opacity-50');
+                btns[correctIdx].classList.add('bg-green-600', 'border-green-400');
+
+                feedback.innerHTML = "✖ INCORRECT";
+                feedback.className = "mt-6 text-2xl font-black text-center text-red-400 block";
+            }
+
+            document.getElementById('score-display').innerText = `Score: ${score}`;
+            document.getElementById('quiz-controls').classList.remove('hidden');
+            feedback.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            quizIndex++;
+            if (quizIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-options').innerHTML = '';
+            document.getElementById('question-text').classList.add('hidden');
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-controls').classList.add('hidden');
+            
+            // Hide header elements
+            document.querySelector('#quiz-container .flex.justify-between').classList.add('hidden');
+
+            const resultsDiv = document.getElementById('quiz-results');
+            resultsDiv.classList.remove('hidden');
+            
+            const finalScoreText = document.getElementById('final-score');
+            finalScoreText.innerText = `You scored ${score} out of ${questions.length}`;
+            
+            if(score >= 8) {
+                finalScoreText.className = "text-2xl text-green-400 mb-8 font-bold";
+                finalScoreText.innerHTML += "<br>Excellent Job! 🌟";
+            } else if (score >= 5) {
+                finalScoreText.className = "text-2xl text-yellow-400 mb-8 font-bold";
+                finalScoreText.innerHTML += "<br>Good effort! Review the slides.";
+            } else {
+                finalScoreText.className = "text-2xl text-red-400 mb-8 font-bold";
+                finalScoreText.innerHTML += "<br>Please study the material again.";
+            }
+        }
+
+        function restartQuiz() {
+            initQuiz();
+        }
+
+        // Initialize quiz on load
+        initQuiz();
+
+    </script>
+</body>
+</html>

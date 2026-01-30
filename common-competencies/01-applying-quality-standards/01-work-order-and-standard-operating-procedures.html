@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Applying Quality Standards & SOP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Slide Visibility Logic */
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        
+        /* Scrolling enabled for tall slides */
+        .slide.active { 
+            display: flex; 
+            opacity: 1; 
+            flex-direction: column; 
+            height: 100%; 
+            justify-content: center; 
+            overflow-y: auto; 
+        }
+        
+        /* Animations */
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+
+        /* Analogy Animation */
+        @keyframes cycle1 { 0%, 45% { opacity: 1; transform: scale(1); } 50%, 100% { opacity: 0; transform: scale(0.95); } }
+        @keyframes cycle2 { 0%, 45% { opacity: 0; transform: scale(0.95); } 50%, 95% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(0.95); } }
+        @keyframes progressBar { 0% { width: 0%; opacity: 1; } 50% { width: 100%; opacity: 1; } 51% { width: 0%; opacity: 0; } 100% { width: 100%; opacity: 1; } }
+        .animate-analogy-cycle-1 { animation: cycle1 16s infinite; }
+        .animate-analogy-cycle-2 { animation: cycle2 16s infinite; }
+        .animate-progress-bar { animation: progressBar 16s linear infinite; }
+
+        /* Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 5px; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans h-screen flex flex-col overflow-hidden selection:bg-blue-500">
+
+    <nav id="navbar" class="bg-slate-800 p-4 flex justify-between items-center shadow-lg border-b border-slate-700 z-10 shrink-0">
+        <div>
+            <h1 class="font-bold text-blue-400 text-xl tracking-wide">CSS NC II - Lesson 1</h1>
+            <p class="text-xs text-slate-300">Teacher: Harleymar J. Macadaeg</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <span id="slide-counter" class="text-lg font-mono text-slate-300 font-bold">Slide 1 / 15</span>
+            <button onclick="changeSlide(-1)" class="bg-slate-700 hover:bg-slate-600 px-6 py-2 rounded text-lg font-bold transition border border-slate-500">Previous</button>
+            <button onclick="changeSlide(1)" class="bg-blue-600 hover:bg-blue-500 px-8 py-2 rounded font-bold text-lg transition shadow-lg shadow-blue-900/50 border border-blue-400">Next</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto p-6 relative max-w-7xl h-full">
+
+        <div class="slide active text-center">
+            <div class="animate-slide-up">
+                <span class="inline-block px-4 py-2 bg-blue-900 text-blue-100 rounded-full text-lg font-bold mb-6 border border-blue-500 shadow-glow">Day 1 Lesson</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-6 drop-shadow-sm">
+                    Applying Quality Standards
+                </h1>
+                <p class="text-4xl text-slate-200 font-light mb-12">Computer Systems Servicing NC II</p>
+                <div class="p-8 bg-slate-800 rounded-2xl max-w-3xl mx-auto border-l-8 border-blue-500 shadow-2xl">
+                    <p class="text-2xl text-white italic">"Quality work starts with following instructions."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-10 border-l-8 border-blue-500 pl-6">Lesson Objectives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-xl border-t-8 border-green-500 shadow-2xl">
+                    <div class="text-6xl mb-6">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Explain Importance</h3>
+                    <p class="text-slate-100 text-lg">Understand why quality standards keep us safe and protect equipment.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-xl border-t-8 border-yellow-500 shadow-2xl">
+                    <div class="text-6xl mb-6">📋</div>
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">Identify Work Order</h3>
+                    <p class="text-slate-100 text-lg">Learn to read the "Mission Paper" that tells you what to fix.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-xl border-t-8 border-purple-500 shadow-2xl">
+                    <div class="text-6xl mb-6">⚙️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Follow SOP</h3>
+                    <p class="text-slate-100 text-lg">Master the step-by-step instructions (Standard Operating Procedures).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-6 text-center">Video: What is SOP?</h2>
+            <div class="flex flex-col items-center justify-center h-full">
+                <div class="w-full max-w-4xl aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden border-4 border-slate-600 relative">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/fHK1mfzyhps" 
+                        title="What is Standard Operating Procedure?" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-slate-400 mb-2 italic">Video not playing? (Error 153)</p>
+                    <a href="https://www.youtube.com/watch?v=fHK1mfzyhps" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition">
+                        <span>▶</span> Watch on YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">What is Applying Quality Standards?</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center h-full justify-center">
+                <div class="w-full md:w-1/2 space-y-8">
+                    <div class="bg-slate-800 p-8 rounded-xl border-l-8 border-blue-500 shadow-xl">
+                        <p class="text-2xl text-white mb-4">It means performing your work while:</p>
+                        <ul class="list-disc pl-8 space-y-4 text-slate-100 text-2xl">
+                            <li>Following <strong>correct procedures</strong>.</li>
+                            <li>Using <strong>proper materials</strong>.</li>
+                            <li>Ensuring <strong>safety and accuracy</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 h-96 relative bg-slate-800 rounded-2xl border-4 border-slate-600 overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-1000 animate-analogy-cycle-1">
+                        <div class="text-7xl mb-4">👨‍🍳</div>
+                        <h3 class="text-4xl font-bold text-yellow-400 mb-6">The Chef</h3>
+                        <div class="w-full bg-slate-900 p-6 rounded-xl text-left space-y-3 font-mono text-lg border-l-8 border-yellow-500">
+                            <p class="text-white"><span class="text-yellow-500 font-bold">Material:</span> Use Salt & Pepper</p>
+                            <p class="text-white"><span class="text-yellow-500 font-bold">Procedure:</span> Cook for 20 mins</p>
+                            <p class="text-white"><span class="text-yellow-500 font-bold">Safety:</span> Don't touch fire!</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8 opacity-0 transition-all duration-1000 animate-analogy-cycle-2 bg-slate-800">
+                        <div class="text-7xl mb-4">👨‍💻</div>
+                        <h3 class="text-4xl font-bold text-blue-400 mb-6">The Technician</h3>
+                        <div class="w-full bg-slate-900 p-6 rounded-xl text-left space-y-3 font-mono text-lg border-l-8 border-blue-500">
+                            <p class="text-white"><span class="text-blue-500 font-bold">Material:</span> Use Thermal Paste</p>
+                            <p class="text-white"><span class="text-blue-500 font-bold">Procedure:</span> Install Drivers</p>
+                            <p class="text-white"><span class="text-blue-500 font-bold">Safety:</span> Anti-Static Strap!</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 h-2 bg-gradient-to-r from-yellow-400 to-blue-500 animate-progress-bar w-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-10">Importance of Quality Standards</h2>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-8 rounded-2xl flex items-center gap-6 border-2 border-transparent hover:border-blue-500 transition">
+                    <span class="text-6xl">⛑️</span>
+                    <div><h3 class="font-bold text-3xl text-white mb-2">Ensures Safety</h3><p class="text-slate-200 text-lg">Prevents electric shocks or fires.</p></div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl flex items-center gap-6 border-2 border-transparent hover:border-blue-500 transition">
+                    <span class="text-6xl">💻</span>
+                    <div><h3 class="font-bold text-3xl text-white mb-2">Prevents Damage</h3><p class="text-slate-200 text-lg">Keeps the computer hardware safe.</p></div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl flex items-center gap-6 border-2 border-transparent hover:border-blue-500 transition">
+                    <span class="text-6xl">🎯</span>
+                    <div><h3 class="font-bold text-3xl text-white mb-2">Maintains Accuracy</h3><p class="text-slate-200 text-lg">Fixes the problem correctly the first time.</p></div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl flex items-center gap-6 border-2 border-transparent hover:border-blue-500 transition">
+                    <span class="text-6xl">🏆</span>
+                    <div><h3 class="font-bold text-3xl text-white mb-2">Meets Standards</h3><p class="text-slate-200 text-lg">Professional quality that clients expect.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide text-center">
+            <h2 class="text-6xl font-bold text-blue-400 mb-8">What is a Work Order?</h2>
+            <p class="text-3xl text-slate-200 mb-12 max-w-4xl mx-auto leading-relaxed">A document that gives job instructions, lists tasks to be done, and specifies materials and tools.</p>
+            <div class="inline-block bg-white text-slate-900 p-10 rounded shadow-2xl transform rotate-1 max-w-3xl border-4 border-slate-300">
+                <h3 class="font-bold text-3xl border-b-4 border-slate-800 pb-4 mb-6">🔧 SERVICE TICKET #101</h3>
+                <div class="text-left space-y-4 font-mono text-xl">
+                    <p><strong>To Do:</strong> Clean System Unit Fan</p>
+                    <p><strong>Tools:</strong> Compressed Air, Brush</p>
+                    <p><strong>Status:</strong> <span class="text-red-600 font-bold bg-red-100 px-2 py-1 rounded">PENDING</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">Parts of a Work Order</h2>
+            <div class="bg-white text-slate-900 rounded-xl shadow-2xl overflow-hidden max-w-6xl mx-auto border-t-8 border-blue-600 flex flex-col md:flex-row h-auto md:h-[650px]">
+                <div class="w-full md:w-1/2 p-10 border-r border-slate-200 overflow-y-auto custom-scrollbar">
+                    <div class="flex justify-between items-center border-b-4 border-slate-300 pb-6 mb-8">
+                        <div><h3 class="font-bold text-3xl text-slate-900">JOB ORDER FORM</h3><p class="text-sm text-slate-600 font-bold">Ref No: CSS-2026-001</p></div>
+                        <div class="text-right"><span class="block font-bold text-red-600 border-4 border-red-600 px-4 py-2 rounded rotate-[-5deg] text-xl">PRIORITY: HIGH</span></div>
+                    </div>
+                    <div class="space-y-8">
+                        <div><span class="text-sm font-bold text-slate-500 uppercase tracking-wider">1. Job Description</span><div class="bg-blue-50 p-4 rounded border-l-8 border-blue-500 mt-2"><p class="font-bold text-xl">System Memory (RAM) Upgrade</p></div></div>
+                        <div><span class="text-sm font-bold text-slate-500 uppercase tracking-wider">2. Materials Needed</span><div class="bg-slate-100 p-4 rounded mt-2 flex items-center gap-4"><span class="text-3xl">💾</span><p class="font-bold text-lg">2x 8GB DDR4 3200MHz RAM Sticks</p></div></div>
+                        <div><span class="text-sm font-bold text-slate-500 uppercase tracking-wider">4. Technician Assigned</span><div class="flex items-center gap-4 mt-2"><div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold text-xl">ST</div><div><p class="font-bold text-lg">Student Technician</p></div></div></div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 bg-slate-50 p-10 flex flex-col">
+                    <span class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">3. OHS Compliant Procedures</span>
+                    <div class="space-y-4 flex-grow">
+                        <div class="flex gap-4 items-start"><span class="bg-red-100 text-red-700 px-3 py-1 rounded text-sm font-bold mt-1 border border-red-200">STEP 1</span><div><p class="font-bold text-slate-900 text-lg">Prepare & Protect</p><p class="text-slate-700 text-lg">Wear <span class="text-blue-700 font-bold">Anti-Static Wrist Strap</span>.</p></div></div>
+                        <div class="flex gap-4 items-start"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded text-sm font-bold mt-1 border border-orange-200">STEP 2</span><div><p class="font-bold text-slate-900 text-lg">Isolate Power</p><p class="text-slate-700 text-lg">Shutdown PC and <span class="text-red-600 font-bold">UNPLUG</span> cable.</p></div></div>
+                        <div class="flex gap-4 items-start"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-sm font-bold mt-1 border border-blue-200">STEP 3</span><div><p class="font-bold text-slate-900 text-lg">Install Component</p><p class="text-slate-700 text-lg">Align RAM notch. Press until click.</p></div></div>
+                    </div>
+                    <div class="mt-6 rounded-xl overflow-hidden border-4 border-slate-300 relative h-56">
+                        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80" alt="Technician installing RAM" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">Standard Operating Procedures (SOP)</h2>
+            <div class="flex flex-col md:flex-row gap-10 h-full">
+                <div class="w-full md:w-5/12 space-y-8">
+                    <div class="bg-slate-800 p-8 rounded-2xl border-l-8 border-purple-500 shadow-xl">
+                        <h3 class="text-3xl font-bold text-white mb-4">What are SOPs?</h3>
+                        <p class="text-slate-200 text-xl leading-relaxed">
+                            SOPs are <strong>step-by-step instructions</strong> that guide technicians on how to perform tasks <span class="text-green-400 font-bold">correctly</span>, <span class="text-green-400 font-bold">safely</span>, and <span class="text-green-400 font-bold">consistently</span>.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-yellow-900/40 border-2 border-yellow-500/50 rounded-xl text-yellow-100">
+                        <p class="font-bold text-2xl mb-2">💡 Key Reminder:</p>
+                        <p class="italic text-lg">"Do not shortcut SOPs. Quality work starts with following instructions."</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 bg-slate-800 rounded-2xl border-4 border-slate-600 p-8 flex flex-col items-center relative overflow-hidden shadow-2xl">
+                    <h3 class="text-slate-400 uppercase font-bold tracking-widest mb-6 text-xl">SOP Simulator</h3>
+                    <div id="pc-case" class="w-80 h-80 border-8 border-slate-500 bg-slate-900 rounded-xl relative flex items-center justify-center transition-all duration-300 shadow-inner">
+                        <div id="sim-status" class="absolute top-4 w-full text-center text-sm font-mono text-slate-400 font-bold">WAITING FOR INPUT...</div>
+                        <div id="part-mobo" class="w-60 h-60 bg-green-700 rounded absolute opacity-0 transition-all duration-500 border-4 border-green-500 flex items-center justify-center text-sm text-green-100 font-mono z-10 font-bold">Motherboard</div>
+                        <div id="part-cpu" class="w-20 h-20 bg-slate-200 rounded absolute opacity-0 transition-all duration-500 z-20 shadow-lg flex items-center justify-center text-xs text-black font-black border-2 border-slate-400">CPU</div>
+                        <div id="part-fan" class="w-24 h-24 border-8 border-slate-400 rounded-full absolute opacity-0 transition-all duration-500 z-30 flex items-center justify-center text-4xl animate-spin-slow bg-slate-800/50">☢️</div>
+                        <div id="explosion" class="absolute inset-0 bg-red-600/90 z-50 hidden flex items-center justify-center"><span class="text-5xl font-black text-white animate-bounce drop-shadow-lg">SYSTEM CRASH!</span></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6 w-full mt-10">
+                        <button onclick="runChaos()" class="p-6 bg-red-900/60 hover:bg-red-600 border-2 border-red-500 text-red-100 rounded-xl transition font-bold text-xl">🚫 Shortcut</button>
+                        <button onclick="runSOP()" class="p-6 bg-green-900/60 hover:bg-green-600 border-2 border-green-500 text-green-100 rounded-xl transition font-bold text-xl">✅ Follow SOP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-10">Examples of SOPs in CSS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-blue-500 shadow-xl">
+                    <div class="text-5xl mb-4">🔌</div>
+                    <h3 class="text-2xl font-bold mb-2">Safety First</h3>
+                    <p class="text-slate-300">Proper shutdown and unplugging before servicing.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-yellow-500 shadow-xl">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-2">ESD Precautions</h3>
+                    <p class="text-slate-300">Using anti-static wrist straps to protect parts.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-green-500 shadow-xl">
+                    <div class="text-5xl mb-4">🛠️</div>
+                    <h3 class="text-2xl font-bold mb-2">Correct Tools</h3>
+                    <p class="text-slate-300">Using the right screwdriver for the right screw.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-purple-500 shadow-xl">
+                    <div class="text-5xl mb-4">💿</div>
+                    <h3 class="text-2xl font-bold mb-2">Installation</h3>
+                    <p class="text-slate-300">Following steps to install OS and drivers.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-red-500 shadow-xl">
+                    <div class="text-5xl mb-4">🔍</div>
+                    <h3 class="text-2xl font-bold mb-2">Inspection</h3>
+                    <p class="text-slate-300">Inspecting received materials for defects.</p>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-2xl border-t-4 border-indigo-500 shadow-xl">
+                    <div class="text-5xl mb-4">📝</div>
+                    <h3 class="text-2xl font-bold mb-2">Documentation</h3>
+                    <p class="text-slate-300">Proper reporting of defects and issues.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">Following Work Instructions</h2>
+            <div class="bg-slate-800 p-10 rounded-2xl border-l-8 border-emerald-500 shadow-2xl max-w-5xl mx-auto">
+                <p class="text-3xl font-bold text-white mb-8">When given a work order, a technician must:</p>
+                <div class="space-y-6 text-2xl text-slate-200">
+                    <div class="flex items-center gap-4">
+                        <span class="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">1</span>
+                        <p><strong>Read and understand</strong> the task instructions.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">2</span>
+                        <p><strong>Follow SOPs</strong> step-by-step.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">3</span>
+                        <p>Use the <strong>correct materials and tools</strong>.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">4</span>
+                        <p>Observe <strong>safety procedures</strong>.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">5</span>
+                        <p><strong>Report</strong> issues or defects properly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">Why SOP is Important in CSS</h2>
+            <div class="space-y-6 max-w-5xl mx-auto">
+                <div class="bg-slate-800/80 border-2 border-slate-600 p-6 rounded-xl flex items-center gap-6">
+                    <span class="text-4xl">✅</span>
+                    <p class="text-2xl text-white">Ensure quality and consistency of work.</p>
+                </div>
+                <div class="bg-slate-800/80 border-2 border-slate-600 p-6 rounded-xl flex items-center gap-6">
+                    <span class="text-4xl">✅</span>
+                    <p class="text-2xl text-white">Prevent damage to components and equipment.</p>
+                </div>
+                <div class="bg-slate-800/80 border-2 border-slate-600 p-6 rounded-xl flex items-center gap-6">
+                    <span class="text-4xl">✅</span>
+                    <p class="text-2xl text-white">Promote safety of the technician and workplace.</p>
+                </div>
+                <div class="bg-slate-800/80 border-2 border-slate-600 p-6 rounded-xl flex items-center gap-6">
+                    <span class="text-4xl">✅</span>
+                    <p class="text-2xl text-white">Reduce errors and rework.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="text-5xl font-bold text-blue-400 mb-8">Class Activity: Real-Life Scenarios</h2>
+            <p class="text-center text-slate-300 text-2xl mb-10">What happens if you ignore the SOP? Click to discuss.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div onclick="this.querySelector('.reveal').classList.remove('hidden')" class="bg-slate-800 p-8 rounded-2xl border-2 border-slate-600 hover:border-yellow-400 cursor-pointer transition relative overflow-hidden group h-80">
+                    <div class="z-10 relative">
+                        <div class="text-6xl mb-4">🕒</div>
+                        <h3 class="font-bold text-2xl text-white mb-2">Scenario 1</h3>
+                        <p class="text-slate-300 text-lg">Technician wants to finish fast, so he skips installing motherboard drivers.</p>
+                        <p class="mt-4 text-yellow-400 font-bold animate-pulse">Click to reveal result</p>
+                    </div>
+                    <div class="reveal hidden absolute inset-0 bg-slate-900 flex flex-col items-center justify-center p-6 text-center z-20 transition-all">
+                        <h3 class="text-red-400 font-bold text-3xl mb-2">Result: Rework!</h3>
+                        <p class="text-white text-xl">Audio and Internet won't work. The tech must do the work again.</p>
+                    </div>
+                </div>
+                <div onclick="this.querySelector('.reveal').classList.remove('hidden')" class="bg-slate-800 p-8 rounded-2xl border-2 border-slate-600 hover:border-red-400 cursor-pointer transition relative overflow-hidden group h-80">
+                    <div class="z-10 relative">
+                        <div class="text-6xl mb-4">⚡</div>
+                        <h3 class="font-bold text-2xl text-white mb-2">Scenario 2</h3>
+                        <p class="text-slate-300 text-lg">Technician doesn't wear the Anti-Static Wrist Strap while holding RAM.</p>
+                        <p class="mt-4 text-red-400 font-bold animate-pulse">Click to reveal result</p>
+                    </div>
+                    <div class="reveal hidden absolute inset-0 bg-slate-900 flex flex-col items-center justify-center p-6 text-center z-20 transition-all">
+                        <h3 class="text-red-400 font-bold text-3xl mb-2">Result: Damage!</h3>
+                        <p class="text-white text-xl">Electrostatic Discharge (ESD) fries the RAM chip.</p>
+                    </div>
+                </div>
+                <div onclick="this.querySelector('.reveal').classList.remove('hidden')" class="bg-slate-800 p-8 rounded-2xl border-2 border-slate-600 hover:border-orange-400 cursor-pointer transition relative overflow-hidden group h-80">
+                    <div class="z-10 relative">
+                        <div class="text-6xl mb-4">🛠️</div>
+                        <h3 class="font-bold text-2xl text-white mb-2">Scenario 3</h3>
+                        <p class="text-slate-300 text-lg">Technician forces a CPU into the socket the wrong way.</p>
+                        <p class="mt-4 text-orange-400 font-bold animate-pulse">Click to reveal result</p>
+                    </div>
+                    <div class="reveal hidden absolute inset-0 bg-slate-900 flex flex-col items-center justify-center p-6 text-center z-20 transition-all">
+                        <h3 class="text-red-400 font-bold text-3xl mb-2">Result: Broken Parts!</h3>
+                        <p class="text-white text-xl">Pins are bent. The motherboard and CPU are destroyed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide text-center">
+            <h2 class="text-7xl font-bold text-emerald-400 mb-8">End of Lesson</h2>
+            <p class="text-3xl text-slate-200 mb-12">Thank you and be ready for hands-on activities!</p>
+            <div class="bg-slate-800 p-10 rounded-2xl max-w-2xl mx-auto border-2 border-slate-600 shadow-2xl">
+                <p class="text-lg uppercase text-slate-400 font-bold mb-4 tracking-widest">Next Topic:</p>
+                <h3 class="text-4xl font-bold text-white">Materials and Components Identification</h3>
+            </div>
+            <button onclick="startQuizMode()" class="mt-16 bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 rounded-full font-bold text-3xl shadow-xl transition animate-bounce border-4 border-blue-400">
+                Start 25s Timed Quiz ⏱️
+            </button>
+        </div>
+
+        <div class="slide" id="quiz-slide">
+            <div class="max-w-5xl mx-auto w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-4xl font-bold text-blue-400">Class Quiz</h2>
+                    <div class="text-2xl font-mono bg-slate-800 px-6 py-3 rounded-lg border-2 border-slate-600 text-white">
+                        Write your answer!
+                    </div>
+                </div>
+
+                <div class="w-full h-6 bg-slate-700 rounded-full mb-2 overflow-hidden relative border border-slate-500">
+                    <div id="timer-bar" class="h-full bg-blue-500 transition-all duration-1000 ease-linear" style="width: 100%;"></div>
+                </div>
+                <div class="text-right text-lg font-mono text-slate-300 mb-4 font-bold" id="timer-text">25s remaining</div>
+
+                <div class="bg-slate-800 p-6 rounded-2xl border-t-8 border-blue-600 shadow-2xl relative">
+                    <span class="absolute top-4 right-6 text-sm font-bold text-slate-400 uppercase tracking-widest" id="q-number">QUESTION 1/10</span>
+                    
+                    <h3 class="text-3xl md:text-3xl font-bold text-white mb-8 leading-relaxed" id="q-text">
+                        Loading Question...
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="options-container">
+                        </div>
+                    
+                    <div id="feedback-area" class="mt-6 hidden border-t-2 border-slate-600 pt-4">
+                        <p id="feedback-msg" class="text-2xl font-bold mb-4 text-slate-400">Answer Recorded 🔒</p>
+                        <button onclick="nextQuestion()" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-xl font-bold text-xl w-full md:w-auto shadow-lg border-b-4 border-blue-800 active:border-b-0 active:translate-y-1">Next Question ➡</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="results-slide">
+            <div class="max-w-5xl mx-auto w-full h-[90vh] flex flex-col">
+                <h2 class="text-5xl font-bold mb-4 text-center text-green-400">Answer Key 🔑</h2>
+                <p class="text-center text-slate-400 text-xl mb-6">Check your own papers!</p>
+                
+                <div class="flex-grow overflow-y-auto custom-scrollbar bg-slate-800 rounded-xl border-2 border-slate-600 p-8 shadow-2xl">
+                    <div id="answer-key-list" class="space-y-6">
+                        </div>
+                </div>
+                
+                <div class="text-center mt-6">
+                    <button onclick="location.reload()" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-xl text-xl font-bold text-white border-2 border-slate-500">Restart Lesson 🔄</button>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-4 justify-center border-t border-slate-700 pt-6">
+                    <a href="../../index.html" class="px-6 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold border border-slate-500 transition flex items-center gap-2">
+                        🏠 Home
+                    </a>
+                    <a href="../index.html" class="px-6 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold border border-slate-500 transition flex items-center gap-2">
+                        📂 Module Menu
+                    </a>
+                    <a href="02-specification-of-materials-and-components.html" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold border-b-4 border-blue-800 active:border-b-0 active:translate-y-1 transition flex items-center gap-2">
+                        Next Lesson ➡️
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- NAVIGATION LOGIC ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slide-counter');
+
+        function changeSlide(direction) {
+            let next = currentSlide + direction;
+            // Prevent going past Slide 13 via normal nav (Slide 14 is quiz)
+            if (next >= 0 && next < 13) {
+                showSlide(next);
+            } else if (next === 13) {
+                showSlide(13); // Show "Start Quiz" slide
+            }
+        }
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentSlide = index;
+            counter.innerText = `Slide ${currentSlide + 1} / 15`;
+        }
+
+        // --- INTERACTIVE LAB LOGIC ---
+        function resetSim() {
+            ['part-mobo', 'part-cpu', 'part-fan'].forEach(id => {
+                const el = document.getElementById(id);
+                el.style.opacity = '0';
+                el.style.transform = 'none';
+            });
+            document.getElementById('explosion').classList.add('hidden');
+            document.getElementById('pc-case').className = "w-80 h-80 border-8 border-slate-500 bg-slate-900 rounded-xl relative flex items-center justify-center transition-all duration-300 shadow-inner";
+            document.getElementById('sim-status').innerText = "WAITING FOR INPUT...";
+        }
+
+        function runSOP() {
+            resetSim();
+            const s = document.getElementById('sim-status');
+            s.innerText = "FOLLOWING SOP...";
+            setTimeout(() => { document.getElementById('part-mobo').style.opacity = '1'; }, 500);
+            setTimeout(() => { document.getElementById('part-cpu').style.opacity = '1'; }, 1500);
+            setTimeout(() => { document.getElementById('part-fan').style.opacity = '1'; }, 2500);
+            setTimeout(() => { 
+                document.getElementById('pc-case').classList.replace('border-slate-500', 'border-green-500'); 
+                s.innerText = "SUCCESS! ✅"; 
+                s.className = "absolute top-4 w-full text-center text-sm font-bold text-green-400";
+            }, 3500);
+        }
+
+        function runChaos() {
+            resetSim();
+            setTimeout(() => {
+                const m = document.getElementById('part-mobo'); m.style.opacity = '1'; m.style.transform = 'rotate(12deg)';
+                const c = document.getElementById('part-cpu'); c.style.opacity = '1'; c.style.transform = 'translate(-40px, 30px)';
+                document.getElementById('explosion').classList.remove('hidden');
+                document.getElementById('sim-status').innerText = "CRITICAL FAILURE!";
+            }, 800);
+        }
+
+        // --- QUIZ LOGIC (UPDATED WITH NEW SOP CONTENT) ---
+        const questions = [
+            { q: "1. What is the definition of SOPs in CSS?", options: ["Suggestions for Optional Procedures", "Step-by-step instructions for tasks", "Short Operating Programs", "System of Power"], correct: 1 },
+            { q: "2. Which is NOT a benefit of following SOPs?", options: ["Ensures safety", "Reduces errors", "Guarantees a salary increase", "Prevents damage"], correct: 2 },
+            { q: "3. What is a specific example of an SOP in CSS?", options: ["Eating lunch at the desk", "Observing ESD precautions", "Watching movies", "Playing games while testing"], correct: 1 },
+            { q: "4. What is the FIRST thing a technician should do with a Work Order?", options: ["Start guessing", "Read and understand instructions", "Open the computer case", "Report a defect"], correct: 1 },
+            { q: "5. Why are SOPs important for government standards?", options: ["To ensure compliance with PECs", "To avoid paying taxes", "To make work harder", "It is not important"], correct: 0 },
+            { q: "6. If a technician finds defective materials, what is the SOP?", options: ["Throw it away secretly", "Use it anyway", "Report issues or defects properly", "Ignore it"], correct: 2 },
+            { q: "7. Complete the Key Reminder: 'Quality work starts with...'", options: ["Working fast", "Following instructions", "Taking shortcuts", "Using expensive tools"], correct: 1 },
+            { q: "8. Before servicing a computer, what is the safety SOP?", options: ["Turn it on", "Clean the screen", "Proper shutdown and unplugging", "Install games"], correct: 2 },
+            { q: "9. What happens if you skip steps (shortcut) in an SOP?", options: ["You finish earlier with no issues", "Quality and consistency are maintained", "Errors, rework, or damage occur", "The client is happier"], correct: 2 },
+            { q: "10. Which action promotes the safety of the technician?", options: ["Rushing the work", "Wearing an Anti-Static Wrist Strap", "Working with wet hands", "Using the wrong tools"], correct: 1 }
+        ];
+
+        let quizIndex = 0;
+        let timeLeft = 25;
+        let timerInterval;
+
+        function startQuizMode() {
+            showSlide(13); // Jump to Quiz Slide
+            document.getElementById('quiz-slide').classList.add('active'); 
+            document.getElementById('navbar').style.display = 'none'; 
+            quizIndex = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (quizIndex >= questions.length) {
+                endQuiz();
+                return;
+            }
+
+            const data = questions[quizIndex];
+            document.getElementById('q-number').innerText = `QUESTION ${quizIndex + 1} / 10`;
+            document.getElementById('q-text').innerText = data.q;
+            
+            // Reset Feedback Area
+            document.getElementById('feedback-area').classList.add('hidden');
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            data.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 bg-slate-700 hover:bg-slate-600 rounded-xl text-left transition border-2 border-transparent text-lg font-semibold text-white flex items-center";
+                btn.innerHTML = `<span class="font-bold text-yellow-400 mr-4 text-xl">${letters[idx]}.</span> ${opt}`;
+                
+                // Clicking just locks answer
+                btn.onclick = () => checkAnswer(btn);
+                container.appendChild(btn);
+            });
+
+            // Start Timer
+            timeLeft = 25;
+            updateTimerUI();
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerUI();
+                if (timeLeft <= 0) timeRanOut();
+            }, 1000);
+        }
+
+        function updateTimerUI() {
+            const percentage = (timeLeft / 25) * 100;
+            const bar = document.getElementById('timer-bar');
+            bar.style.width = `${percentage}%`;
+            document.getElementById('timer-text').innerText = `${timeLeft}s remaining`;
+            if (timeLeft > 10) bar.className = "h-full bg-blue-500 transition-all duration-1000 ease-linear"; 
+            else if (timeLeft > 5) bar.className = "h-full bg-yellow-500 transition-all duration-1000 ease-linear"; 
+            else bar.className = "h-full bg-red-600 transition-all duration-1000 ease-linear"; 
+        }
+
+        function checkAnswer(btn) {
+            clearInterval(timerInterval);
+            disableButtons();
+            
+            // Visual selection (Neutral Blue)
+            btn.classList.add('bg-blue-600', 'border-blue-400');
+            
+            // Show Next Button (No Correct/Wrong text)
+            const fb = document.getElementById('feedback-area');
+            fb.classList.remove('hidden');
+        }
+
+        function timeRanOut() {
+            clearInterval(timerInterval);
+            disableButtons();
+            const fb = document.getElementById('feedback-area');
+            fb.classList.remove('hidden');
+        }
+
+        function disableButtons() {
+            const btns = document.querySelectorAll('#options-container button');
+            btns.forEach(b => b.disabled = true);
+        }
+
+        function nextQuestion() {
+            quizIndex++;
+            loadQuestion();
+        }
+
+        function endQuiz() {
+            document.getElementById('quiz-slide').classList.remove('active');
+            document.getElementById('results-slide').classList.add('active');
+            
+            // Generate Answer Key List
+            const list = document.getElementById('answer-key-list');
+            list.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+
+            questions.forEach((q, i) => {
+                const correctLetter = letters[q.correct];
+                const correctText = q.options[q.correct];
+                
+                const item = document.createElement('div');
+                item.className = "border-b border-slate-600 pb-4";
+                item.innerHTML = `
+                    <p class="text-slate-400 mb-1 text-sm">Question ${i+1}</p>
+                    <p class="text-white text-lg font-bold mb-2">${q.q}</p>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded font-bold">Answer: ${correctLetter}</span>
+                        <span class="text-green-300 text-lg">${correctText}</span>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Keyboard Nav
+        document.addEventListener('keydown', (e) => {
+            if(e.key === "ArrowRight" && currentSlide < 12) changeSlide(1);
+            if(e.key === "ArrowLeft") changeSlide(-1);
+        });
+    </script>
+</body>
+</html>
