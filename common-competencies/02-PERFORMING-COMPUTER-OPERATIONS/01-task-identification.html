@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PCO - Task Identification & Planning</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,27 +23,45 @@
 
         /* Quiz Layout Styles */
         .question-box {
-            margin-bottom: 40px; 
+            margin-bottom: 20px; 
             border-bottom: 4px solid #facc15; /* Yellow border */
-            padding-bottom: 20px;
-        }
-        .options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px; 
-            margin-top: 20px;
-            color: #ffffff;
-            font-weight: 600; /* Semi-bold for options */
+            padding-bottom: 10px;
         }
         
-        /* Correct Answer Style (Applied via JS) - Changed to Cyan/Blue for better visibility than Green */
+        /* Responsive Grid for Options */
+        .options {
+            display: grid;
+            grid-template-columns: 1fr; /* Default 1 column for mobile */
+            gap: 15px; 
+            margin-top: 20px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Desktop override for options */
+        @media (min-width: 768px) {
+            .options {
+                grid-template-columns: 1fr 1fr; /* 2 columns for desktop */
+                gap: 30px;
+                margin-bottom: 40px;
+                padding-bottom: 20px;
+            }
+        }
+        
+        /* Correct Answer Style */
         .correct-answer {
             color: #22d3ee !important; /* Bright Cyan */
             font-weight: 900 !important; /* Extra Black */
             text-shadow: 0 0 15px rgba(34, 211, 238, 0.9);
-            transform: scale(1.1);
+            transform: scale(1.05);
             transition: all 0.3s ease;
             text-decoration: underline;
+        }
+
+        /* Fix for Reveal.js on mobile to prevent cutting off edges */
+        .reveal .slides section {
+            padding: 10px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -53,55 +71,55 @@
         <div class="slides">
 
             <section data-background-gradient="linear-gradient(to bottom right, #000000, #1a202c)">
-                <div class="flex flex-col items-center justify-center h-full">
-                    <h1 class="text-8xl font-black uppercase tracking-wide mb-4 gradient-text">
+                <div class="flex flex-col items-center justify-center h-full w-full">
+                    <h1 class="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-wide mb-4 gradient-text text-center leading-tight">
                         Performing Computer Operations
                     </h1>
-                    <h3 class="text-5xl text-white font-bold mb-8">Day 1: Task Identification & Planning</h3>
-                    <div class="bg-gray-800 px-10 py-8 rounded-xl border-4 border-yellow-500 shadow-2xl">
-                        <p class="text-4xl text-white font-bold">Code: <span class="font-mono text-yellow-400">TLE_IACSS9-12PCO-Ic-d-4</span></p>
-                        <p class="text-3xl text-gray-200 mt-4 font-semibold">Presenter: Harleymar J. Macadeg</p>
+                    <h3 class="text-xl md:text-3xl lg:text-5xl text-white font-bold mb-8 text-center">Day 1: Task Identification & Planning</h3>
+                    <div class="bg-gray-800 px-6 py-4 md:px-10 md:py-8 rounded-xl border-4 border-yellow-500 shadow-2xl w-full max-w-4xl">
+                        <p class="text-lg md:text-2xl lg:text-4xl text-white font-bold break-words">Code: <span class="font-mono text-yellow-400">TLE_IACSS9-12PCO-Ic-d-4</span></p>
+                        <p class="text-base md:text-xl lg:text-3xl text-gray-200 mt-4 font-semibold">Presenter: Harleymar J. Macadeg</p>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2 class="text-7xl font-black text-yellow-400 mb-10 text-left pl-4 border-b-4 border-white inline-block">Today's Objectives</h2>
-                <div class="space-y-8 w-11/12 mx-auto text-left">
-                    <div class="fragment fade-right p-8 bg-gray-800 border-l-8 border-yellow-500 rounded shadow-lg">
-                        <h3 class="text-4xl font-black text-white">1. Determine Task Requirements</h3>
-                        <p class="text-3xl text-gray-200 font-bold mt-2">Analyze the job description to understand exactly what is needed.</p>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black text-yellow-400 mb-6 md:mb-10 text-left pl-4 border-b-4 border-white inline-block">Today's Objectives</h2>
+                <div class="space-y-4 md:space-y-8 w-full md:w-11/12 mx-auto text-left">
+                    <div class="fragment fade-right p-4 md:p-8 bg-gray-800 border-l-4 md:border-l-8 border-yellow-500 rounded shadow-lg">
+                        <h3 class="text-xl md:text-3xl lg:text-4xl font-black text-white">1. Determine Task Requirements</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-gray-200 font-bold mt-2">Analyze the job description to understand exactly what is needed.</p>
                     </div>
-                    <div class="fragment fade-right p-8 bg-gray-800 border-l-8 border-cyan-400 rounded shadow-lg">
-                        <h3 class="text-4xl font-black text-white">2. Plan the Execution</h3>
-                        <p class="text-3xl text-gray-200 font-bold mt-2">Select the correct tools, hardware, and software before starting.</p>
+                    <div class="fragment fade-right p-4 md:p-8 bg-gray-800 border-l-4 md:border-l-8 border-cyan-400 rounded shadow-lg">
+                        <h3 class="text-xl md:text-3xl lg:text-4xl font-black text-white">2. Plan the Execution</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-gray-200 font-bold mt-2">Select the correct tools, hardware, and software before starting.</p>
                     </div>
-                    <div class="fragment fade-right p-8 bg-gray-800 border-l-8 border-white rounded shadow-lg">
-                        <h3 class="text-4xl font-black text-white">3. Apply to CSS</h3>
-                        <p class="text-3xl text-gray-200 font-bold mt-2">Create a sample Work Order for a real computer servicing scenario.</p>
+                    <div class="fragment fade-right p-4 md:p-8 bg-gray-800 border-l-4 md:border-l-8 border-white rounded shadow-lg">
+                        <h3 class="text-xl md:text-3xl lg:text-4xl font-black text-white">3. Apply to CSS</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-gray-200 font-bold mt-2">Create a sample Work Order for a real computer servicing scenario.</p>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2 class="text-7xl font-black text-cyan-400 mb-12">What is Task Identification?</h2>
-                <div class="grid grid-cols-2 gap-10 items-center">
-                    <div class="text-left">
-                        <p class="text-5xl leading-tight mb-8 font-bold">
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black text-cyan-400 mb-6 md:mb-12">What is Task Identification?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center h-full">
+                    <div class="text-left order-2 md:order-1">
+                        <p class="text-2xl md:text-4xl lg:text-5xl leading-tight mb-4 md:mb-8 font-bold">
                             It is the process of defining the <span class="text-yellow-400 font-black underline">Scope of Work</span>.
                         </p>
-                        <p class="text-4xl text-white font-semibold">
+                        <p class="text-xl md:text-3xl lg:text-4xl text-white font-semibold">
                             Before touching any equipment, a technician must answer:
                         </p>
-                        <ul class="list-disc pl-12 mt-6 text-4xl space-y-4 text-yellow-300 font-bold">
+                        <ul class="list-disc pl-8 md:pl-12 mt-4 md:mt-6 text-xl md:text-3xl lg:text-4xl space-y-2 md:space-y-4 text-yellow-300 font-bold">
                             <li>What is the problem?</li>
                             <li>What is the desired outcome?</li>
                             <li>Do I have the tools?</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-800 p-10 rounded-xl border-4 border-white shadow-xl">
-                        <h3 class="text-4xl font-black mb-6 text-center text-yellow-400">Common CSS Tasks</h3>
-                        <ul class="space-y-6 text-3xl text-left font-bold text-white">
+                    <div class="bg-gray-800 p-6 md:p-10 rounded-xl border-4 border-white shadow-xl order-1 md:order-2">
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-black mb-4 md:mb-6 text-center text-yellow-400">Common CSS Tasks</h3>
+                        <ul class="space-y-4 md:space-y-6 text-xl md:text-2xl lg:text-3xl text-left font-bold text-white">
                             <li class="fragment">🖥️ Hardware: Assembling PC</li>
                             <li class="fragment">💿 Software: Installing OS</li>
                             <li class="fragment">🌐 Network: Crimping Cables</li>
@@ -112,76 +130,76 @@
             </section>
 
             <section>
-                <h2 class="text-7xl font-black text-white mb-12">Why Preparation Matters</h2>
-                <div class="grid grid-cols-3 gap-8 px-4">
-                    <div class="fragment fade-up bg-gray-800 p-8 rounded-xl border-t-8 border-yellow-400">
-                        <div class="text-7xl mb-6">⏱️</div>
-                        <h3 class="text-4xl font-black mb-4 text-yellow-400">Efficiency</h3>
-                        <p class="text-3xl text-white font-bold">Prevents "running back to the shop." You have every tool ready.</p>
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black text-white mb-6 md:mb-12">Why Preparation Matters</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 px-2 md:px-4">
+                    <div class="fragment fade-up bg-gray-800 p-4 md:p-8 rounded-xl border-t-8 border-yellow-400">
+                        <div class="text-4xl md:text-6xl lg:text-7xl mb-2 md:mb-6">⏱️</div>
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-black mb-2 md:mb-4 text-yellow-400">Efficiency</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">Prevents "running back to the shop." You have every tool ready.</p>
                     </div>
-                    <div class="fragment fade-up bg-gray-800 p-8 rounded-xl border-t-8 border-cyan-400">
-                        <div class="text-7xl mb-6">🛡️</div>
-                        <h3 class="text-4xl font-black mb-4 text-cyan-400">Safety</h3>
-                        <p class="text-3xl text-white font-bold">Ensures you have anti-static straps (ESD) to prevent damage.</p>
+                    <div class="fragment fade-up bg-gray-800 p-4 md:p-8 rounded-xl border-t-8 border-cyan-400">
+                        <div class="text-4xl md:text-6xl lg:text-7xl mb-2 md:mb-6">🛡️</div>
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-black mb-2 md:mb-4 text-cyan-400">Safety</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">Ensures you have anti-static straps (ESD) to prevent damage.</p>
                     </div>
-                    <div class="fragment fade-up bg-gray-800 p-8 rounded-xl border-t-8 border-white">
-                        <div class="text-7xl mb-6">⭐</div>
-                        <h3 class="text-4xl font-black mb-4 text-white">Quality</h3>
-                        <p class="text-3xl text-white font-bold">Ensures the final output matches the client's request.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-7xl font-black text-yellow-400 mb-12">Steps Before You Start</h2>
-                <div class="flex flex-col space-y-6 w-10/12 mx-auto">
-                    <div class="fragment flex items-center bg-gray-800 p-6 rounded-lg border-2 border-white">
-                        <div class="bg-blue-600 text-white font-black rounded-full w-16 h-16 flex items-center justify-center text-4xl mr-8">1</div>
-                        <div class="text-left">
-                            <h4 class="text-4xl font-black text-cyan-300">Receive Job Order</h4>
-                            <p class="text-3xl text-white font-bold">Listen to the client or read the ticket.</p>
-                        </div>
-                    </div>
-                    <div class="fragment flex items-center bg-gray-800 p-6 rounded-lg border-2 border-white">
-                        <div class="bg-yellow-600 text-white font-black rounded-full w-16 h-16 flex items-center justify-center text-4xl mr-8">2</div>
-                        <div class="text-left">
-                            <h4 class="text-4xl font-black text-yellow-300">Identify Resources</h4>
-                            <p class="text-3xl text-white font-bold">List needed software and hardware tools.</p>
-                        </div>
-                    </div>
-                    <div class="fragment flex items-center bg-gray-800 p-6 rounded-lg border-2 border-white">
-                        <div class="bg-red-600 text-white font-black rounded-full w-16 h-16 flex items-center justify-center text-4xl mr-8">3</div>
-                        <div class="text-left">
-                            <h4 class="text-4xl font-black text-red-300">Prepare Workspace</h4>
-                            <p class="text-3xl text-white font-bold">Ensure the table is clean, dry, and grounded.</p>
-                        </div>
+                    <div class="fragment fade-up bg-gray-800 p-4 md:p-8 rounded-xl border-t-8 border-white">
+                        <div class="text-4xl md:text-6xl lg:text-7xl mb-2 md:mb-6">⭐</div>
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-black mb-2 md:mb-4 text-white">Quality</h3>
+                        <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">Ensures the final output matches the client's request.</p>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-cyan-400 mb-8">Real World CSS Checklist</h2>
-                <p class="text-3xl mb-8 text-white font-bold text-left bg-gray-800 p-4 rounded">Scenario: Client wants to reformat a slow PC to Windows 10.</p>
-                <div class="bg-white text-gray-900 rounded-lg shadow-2xl p-6 overflow-hidden">
-                    <table class="w-full text-left text-3xl">
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black text-yellow-400 mb-6 md:mb-12">Steps Before You Start</h2>
+                <div class="flex flex-col space-y-4 md:space-y-6 w-full md:w-10/12 mx-auto">
+                    <div class="fragment flex items-center bg-gray-800 p-4 md:p-6 rounded-lg border-2 border-white">
+                        <div class="bg-blue-600 text-white font-black rounded-full w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center text-2xl md:text-4xl mr-4 md:mr-8">1</div>
+                        <div class="text-left">
+                            <h4 class="text-xl md:text-3xl lg:text-4xl font-black text-cyan-300">Receive Job Order</h4>
+                            <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">Listen to the client or read the ticket.</p>
+                        </div>
+                    </div>
+                    <div class="fragment flex items-center bg-gray-800 p-4 md:p-6 rounded-lg border-2 border-white">
+                        <div class="bg-yellow-600 text-white font-black rounded-full w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center text-2xl md:text-4xl mr-4 md:mr-8">2</div>
+                        <div class="text-left">
+                            <h4 class="text-xl md:text-3xl lg:text-4xl font-black text-yellow-300">Identify Resources</h4>
+                            <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">List needed software and hardware tools.</p>
+                        </div>
+                    </div>
+                    <div class="fragment flex items-center bg-gray-800 p-4 md:p-6 rounded-lg border-2 border-white">
+                        <div class="bg-red-600 text-white font-black rounded-full w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center text-2xl md:text-4xl mr-4 md:mr-8">3</div>
+                        <div class="text-left">
+                            <h4 class="text-xl md:text-3xl lg:text-4xl font-black text-red-300">Prepare Workspace</h4>
+                            <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold">Ensure the table is clean, dry, and grounded.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-cyan-400 mb-6 md:mb-8">Real World CSS Checklist</h2>
+                <p class="text-lg md:text-2xl lg:text-3xl mb-6 md:mb-8 text-white font-bold text-left bg-gray-800 p-4 rounded">Scenario: Client wants to reformat a slow PC to Windows 10.</p>
+                <div class="bg-white text-gray-900 rounded-lg shadow-2xl p-2 md:p-6 overflow-hidden">
+                    <table class="w-full text-left text-base md:text-3xl">
                         <thead>
                             <tr class="bg-gray-300">
-                                <th class="p-4 text-black font-black border-b-4 border-black">Planning Phase</th>
-                                <th class="p-4 text-black font-black border-b-4 border-black">Details / Action Items</th>
+                                <th class="p-2 md:p-4 text-black font-black border-b-4 border-black">Planning Phase</th>
+                                <th class="p-2 md:p-4 text-black font-black border-b-4 border-black">Details / Action Items</th>
                             </tr>
                         </thead>
                         <tbody class="font-bold">
                             <tr>
-                                <td class="text-blue-900 p-4 border-b border-gray-400">1. Task Analysis</td>
-                                <td class="p-4 border-b border-gray-400">Reformat PC. Goal: Clean Install.</td>
+                                <td class="text-blue-900 p-2 md:p-4 border-b border-gray-400 align-top">1. Task Analysis</td>
+                                <td class="p-2 md:p-4 border-b border-gray-400">Reformat PC. Goal: Clean Install.</td>
                             </tr>
                             <tr>
-                                <td class="text-blue-900 p-4 border-b border-gray-400">2. Data Safety</td>
-                                <td class="p-4 border-b border-gray-400"><span class="text-red-600 font-black">CRITICAL:</span> Backup User Files first.</td>
+                                <td class="text-blue-900 p-2 md:p-4 border-b border-gray-400 align-top">2. Data Safety</td>
+                                <td class="p-2 md:p-4 border-b border-gray-400"><span class="text-red-600 font-black">CRITICAL:</span> Backup User Files first.</td>
                             </tr>
                             <tr>
-                                <td class="text-blue-900 p-4">3. Tools Needed</td>
-                                <td class="p-4">Bootable USB (8GB+), Drivers.</td>
+                                <td class="text-blue-900 p-2 md:p-4 align-top">3. Tools Needed</td>
+                                <td class="p-2 md:p-4">Bootable USB (8GB+), Drivers.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -189,17 +207,17 @@
             </section>
 
             <section data-background-color="#111827">
-                <h2 class="text-7xl font-black text-yellow-400 mb-8 border-b-4 border-white inline-block">Activity: Create a Plan</h2>
-                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl text-left border-l-8 border-yellow-500">
-                    <h3 class="text-5xl font-black text-white mb-6">Written Work #1</h3>
-                    <p class="text-4xl text-gray-200 font-bold mb-8">Get a 1/2 sheet of paper. Read the scenario and create a **Task Plan**.</p>
-                    <div class="bg-gray-700 p-8 rounded-lg mb-10 border-2 border-white">
-                        <p class="text-4xl italic text-white font-bold leading-relaxed">
+                <h2 class="text-3xl md:text-5xl lg:text-7xl font-black text-yellow-400 mb-6 md:mb-8 border-b-4 border-white inline-block">Activity: Create a Plan</h2>
+                <div class="bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl text-left border-l-4 md:border-l-8 border-yellow-500">
+                    <h3 class="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6">Written Work #1</h3>
+                    <p class="text-lg md:text-3xl lg:text-4xl text-gray-200 font-bold mb-6 md:mb-8">Get a 1/2 sheet of paper. Read the scenario and create a **Task Plan**.</p>
+                    <div class="bg-gray-700 p-4 md:p-8 rounded-lg mb-6 md:mb-10 border-2 border-white">
+                        <p class="text-lg md:text-3xl lg:text-4xl italic text-white font-bold leading-relaxed">
                             <span class="text-yellow-400">SCENARIO:</span> <br>
                             "The School Registrar has a box of old student records (paper). She wants them **digitized** and saved onto a **secure External Hard Drive**."
                         </p>
                     </div>
-                    <div class="text-4xl text-white space-y-6 ml-6 font-bold">
+                    <div class="text-lg md:text-3xl lg:text-4xl text-white space-y-4 md:space-y-6 ml-0 md:ml-6 font-bold">
                         <p>1. Task Identification: (What is the main job?)</p>
                         <p>2. Required Output: (What is the final result?)</p>
                         <p>3. Resources Needed: (Hardware & Software)</p>
@@ -208,11 +226,11 @@
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-yellow-400 mb-10">Quiz (1-2)</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-6 md:mb-10">Quiz (1-2)</h2>
                 <div class="text-left w-full mx-auto">
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">1. What is the FIRST step in PCO?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">1. What is the FIRST step in PCO?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Formatting</span>
                             <span class="ans-s1" id="q1">B. Task Identification</span>
                             <span>C. Printing</span>
@@ -220,8 +238,8 @@
                         </div>
                     </div>
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">2. What does "Output" refer to?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">2. What does "Output" refer to?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Raw data</span>
                             <span class="ans-s1" id="q2">B. The final result</span>
                             <span>C. Tools used</span>
@@ -229,15 +247,15 @@
                         </div>
                     </div>
                 </div>
-                <button id="btnS1" onclick="showAnswers('ans-s1', 'btnS1')" class="mt-4 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-3xl border-2 border-white">Check Answers</button>
+                <button id="btnS1" onclick="showAnswers('ans-s1', 'btnS1')" class="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-xl md:text-3xl border-2 border-white w-full md:w-auto">Check Answers</button>
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-yellow-400 mb-10">Quiz (3-4)</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-6 md:mb-10">Quiz (3-4)</h2>
                 <div class="text-left w-full mx-auto">
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">3. Which is an INPUT device?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">3. Which is an INPUT device?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span class="ans-s2" id="q3">A. Keyboard</span>
                             <span>B. Printer</span>
                             <span>C. Monitor</span>
@@ -245,8 +263,8 @@
                         </div>
                     </div>
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">4. Why is planning important?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">4. Why is planning important?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. To look busy</span>
                             <span>B. To waste time</span>
                             <span class="ans-s2" id="q4">C. To ensure efficiency</span>
@@ -254,15 +272,15 @@
                         </div>
                     </div>
                 </div>
-                <button id="btnS2" onclick="showAnswers('ans-s2', 'btnS2')" class="mt-4 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-3xl border-2 border-white">Check Answers</button>
+                <button id="btnS2" onclick="showAnswers('ans-s2', 'btnS2')" class="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-xl md:text-3xl border-2 border-white w-full md:w-auto">Check Answers</button>
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-yellow-400 mb-10">Quiz (5-6)</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-6 md:mb-10">Quiz (5-6)</h2>
                 <div class="text-left w-full mx-auto">
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">5. Document for client requests?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">5. Document for client requests?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Receipt</span>
                             <span class="ans-s3" id="q5">B. Job Order</span>
                             <span>C. Menu</span>
@@ -270,8 +288,8 @@
                         </div>
                     </div>
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">6. Tool for UTP cables?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">6. Tool for UTP cables?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Hammer</span>
                             <span>B. Drill</span>
                             <span class="ans-s3" id="q6">C. Crimping Tool</span>
@@ -279,15 +297,15 @@
                         </div>
                     </div>
                 </div>
-                <button id="btnS3" onclick="showAnswers('ans-s3', 'btnS3')" class="mt-4 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-3xl border-2 border-white">Check Answers</button>
+                <button id="btnS3" onclick="showAnswers('ans-s3', 'btnS3')" class="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-xl md:text-3xl border-2 border-white w-full md:w-auto">Check Answers</button>
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-yellow-400 mb-10">Quiz (7-8)</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-6 md:mb-10">Quiz (7-8)</h2>
                 <div class="text-left w-full mx-auto">
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">7. Critical step BEFORE reformatting?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">7. Critical step BEFORE reformatting?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span class="ans-s4" id="q7">A. Backup Data</span>
                             <span>B. Install Games</span>
                             <span>C. Delete Files</span>
@@ -295,8 +313,8 @@
                         </div>
                     </div>
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">8. Which is a SOFTWARE resource?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">8. Which is a SOFTWARE resource?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Monitor</span>
                             <span class="ans-s4" id="q8">B. Windows OS</span>
                             <span>C. Mouse</span>
@@ -304,15 +322,15 @@
                         </div>
                     </div>
                 </div>
-                <button id="btnS4" onclick="showAnswers('ans-s4', 'btnS4')" class="mt-4 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-3xl border-2 border-white">Check Answers</button>
+                <button id="btnS4" onclick="showAnswers('ans-s4', 'btnS4')" class="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-xl md:text-3xl border-2 border-white w-full md:w-auto">Check Answers</button>
             </section>
 
             <section>
-                <h2 class="text-6xl font-black text-yellow-400 mb-10">Quiz (9-10)</h2>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-yellow-400 mb-6 md:mb-10">Quiz (9-10)</h2>
                 <div class="text-left w-full mx-auto">
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">9. What does ESD stand for?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">9. What does ESD stand for?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. Electric Static</span>
                             <span class="ans-s5" id="q9">B. Electrostatic Discharge</span>
                             <span>C. Energy Safe</span>
@@ -320,8 +338,8 @@
                         </div>
                     </div>
                     <div class="question-box">
-                        <p class="text-white font-black text-5xl mb-6">10. "Brain" of the computer?</p>
-                        <div class="options text-4xl">
+                        <p class="text-white font-black text-xl md:text-4xl lg:text-5xl mb-4 md:mb-6">10. "Brain" of the computer?</p>
+                        <div class="options text-lg md:text-3xl lg:text-4xl">
                             <span>A. HDD</span>
                             <span>B. PSU</span>
                             <span class="ans-s5" id="q10">C. CPU</span>
@@ -329,7 +347,7 @@
                         </div>
                     </div>
                 </div>
-                <button id="btnS5" onclick="showAnswers('ans-s5', 'btnS5')" class="mt-4 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-3xl border-2 border-white">Check Answers</button>
+                <button id="btnS5" onclick="showAnswers('ans-s5', 'btnS5')" class="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gray-700 hover:bg-gray-600 text-white font-black rounded shadow-lg text-xl md:text-3xl border-2 border-white w-full md:w-auto">Check Answers</button>
             </section>
 
         </div>
